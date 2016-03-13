@@ -14,6 +14,12 @@
 
 ## Change Log ##
 
+# 1.0.3 
+* Added: Cloned from genesis-oik v1.0.2 ( 962455c )
+* Deleted: Removed genesis_all logic
+* Changed: Reduce h2 font for archives
+* Changed: Make the archive simpler
+
 # 1.0.2 
 * Add: Add temporary workaround for Chrome bug with the admin menu
 * Changed: Always display the full sized image in image.php
