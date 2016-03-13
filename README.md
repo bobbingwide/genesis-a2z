@@ -1,3 +1,6 @@
+# genesis-a2z
+Genesis child theme for WP-a2z.org
+=======
 #readme.txt
 
 # Genesis Child Theme for oik-plugins with image.php and other single-CPT .php files
