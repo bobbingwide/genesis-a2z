@@ -1,10 +1,6 @@
 <?php // (C) Copyright Bobbing Wide 2015
 
-//* Child theme (do not remove) - is this really necessary? 
-define( 'CHILD_THEME_NAME', 'Genesis OIK' );
-define( 'CHILD_THEME_URL', 'http://www.bobbingwide.com/oik-themes' );
-define( 'CHILD_THEME_VERSION', '2.1.2' );
-
+genesis_oik_functions_loaded();
 
 /**
  * Implement 'wp_ajax_send-attachment-to-editor' to not attach an unattached media item
@@ -35,11 +31,6 @@ function dont_attach( $blah ) {
 	//$_POST['post_id'] = 0;
 }
 
-/*
- * Hook into the AJAX request before WordPress, using priority 0
- */ 
-add_action( 'wp_ajax_send-attachment-to-editor', 'dont_attach', 0 );
-
 
 /**
  * Display footer credits for the oik theme
@@ -58,163 +49,6 @@ function oik_footer_creds_text( $text ) {
 }
 
 /**
- * Trace all genesis hooks
- * 
- * So we can attempt to see what hook causes Genesis to do something.
- * Use View source and look for all the genesis hook names inside HTML comments
- * 
- * Notes:
- * - it's not safe to produce HTML comments before the doctype tag has been created
- * - we're only interested hooks prefixed 'genesis_'
- *
- * @param string $tag the action hook or filter
- * @param mixed $args parameters? 
- */
-function genesis_all( $tag, $args2=null ) {
-	static $ok_to_e_c = false;
-	if ( $ok_to_e_c ) {
-		if ( 0 === strpos( $tag, "genesis_" ) ) {
-			$hooked = genesis_get_hooks( $tag );
-			genesis_safe_e_c( $tag, $hooked );
-		}
-		if ( 0 === strpos( $tag, "the_excerpt" ) ) {
-			$hooked = genesis_get_hooks( $tag );
-			genesis_safe_e_c( $tag, $hooked );
-		}
-		
-		if ( 0 === strpos( $tag, "the_content" ) ) {
-			$hooked = genesis_get_hooks( $tag );
-			genesis_safe_e_c( $tag, $hooked );
-		}
-		
-		if ( 0 === strpos( $tag, "the_permalink" ) ) {
-			$hooked = genesis_get_hooks( $tag );
-			genesis_safe_e_c( $tag, $hooked );
-			//bw_trace2( $hooked, $tag );
-			//bw_backtrace();
-		}
-		
-	} else {
-		if ( "genesis_doctype" === $tag ) {
-			$ok_to_e_c = true;
-		}
-	}
-}
-
-/**
- * Only echo comments when safe
- */
-function genesis_safe_e_c( $tag, $hooked ) {
-	static $deferred = null;
-	$hook_type = genesis_trace_get_hook_type( $tag );
-	if ( $hook_type === "action" ) {
-		if ( $deferred ) {
-			_e_c( "deferred $deferred" );
-			$deferred = null;
-		}
-		_e_c( "$hook_type $tag $hooked" );
-	
-	} else {
-		$deferred .= "\n";
-		$deferred .= "$hook_type $tag $hooked";
-	}
-}
-	
-/** 
- * Return the hook type
- * 
- */ 
-function genesis_trace_get_hook_type( $hook ) {
-	global $wp_actions;
-	if ( isset( $wp_actions[ $hook ] ) ){
-		$type = "action";
-	} else {
-		$type = "filter";
-	}
-	return( $type );
-}
-
-/**
- * Return the current filter summary
- * 
- * Even if current_filter exists the global $wp_current_filter may not be set
- * 
- * @return string current filter array imploded with commas
- */
-function genesis_current_filter() {
-  global $wp_current_filter;
-  if ( is_array( $wp_current_filter ) ) { 
-	  $filters = implode( ",",  $wp_current_filter );
-	} else {
-	  $filters = null;
-	}		
-  return( $filters );  
-}
-
-/**
- * Return the attached hooks
- *
- * Note: It's safe to use foreach over $wp_filter[ $tag ]
- * since this routine's invoked for the 'all' hook
- * not the hook in question.
- * But I've copied the code for bw_trace_get_attached_hooks() anyway
- * since it's more 'complete' 
- *
- * See {@link http://php.net/manual/en/control-structures.foreach.php}
- *
- * @param string $tag the action hook or filter
- * @return string the attached hook information
- *
- */
-function genesis_get_hooks( $tag ) {
-	global $wp_filter; 
-  if ( isset( $wp_filter[ $tag ] ) ) {
-		$current_hooks = $wp_filter[ $tag ];
-		//bw_trace2( $current_hooks, "current hooks for $tag", false, BW_TRACE_VERBOSE );
-		$hooks = null;
-		$hooks = genesis_current_filter();
-		$hooks .= "\n";
-		foreach ( $current_hooks as $priority => $functions ) {
-			$hooks .= "\n: $priority  ";
-			foreach ( $functions as $index => $args ) {
-				$hooks .= " ";
-				if ( is_object( $args['function' ] ) ) {
-					$object_name = get_class( $args['function'] );
-					$hooks .= $object_name; 
-
-				} elseif ( is_array( $args['function'] ) ) {
-					//bw_trace2( $args, "args" );
-					if ( is_object( $args['function'][0] ) ) { 
-						$object_name = get_class( $args['function'][0] );
-					}	else {
-						$object_name = $args['function'][0];
-					}
-					$hooks .= $object_name . '::' . $args['function'][1];
-				} else {
-					$hooks .= $args['function'];
-				}
-				$hooks .= ";" . $args['accepted_args'];
-			}
-		}
-		
-	} else {
-		$hooks = null;
-	}
-	return( $hooks ); 
-}
-
-/**
- * Echo a comment
- *
- * @param string $string the text to echo inside the comment
- */
-function _e_c( $string ) {
-	echo "<!--\n";
-	echo $string;
-	echo "-->";
-}
-
-/**
  * Register special sidebars 
  *
  * We support special sidebars for
@@ -223,6 +57,7 @@ function _e_c( $string ) {
  * "oik_pluginversion"
  * "shortcode_example"
  * "download"
+ * "oik-themes"
  *
  * We don't display sidebars for
  * 
@@ -341,6 +176,13 @@ function genesis_oik_pre_get_option_site_layout( $layout, $setting ) {
  * Register the hooks for this theme
  */
 function genesis_oik_functions_loaded() {
+
+
+	//* Child theme (do not remove) - is this really necessary? 
+	define( 'CHILD_THEME_NAME', 'Genesis OIK' );
+	define( 'CHILD_THEME_URL', 'http://www.bobbingwide.com/oik-themes' );
+	define( 'CHILD_THEME_VERSION', '1.0.3' );
+
 	// Start the engine	- @TODO Is this necessary?
 	include_once( get_template_directory() . '/lib/init.php' );
 	
@@ -375,13 +217,109 @@ function genesis_oik_functions_loaded() {
 	
 	// Remove post info
 	remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
+	
+	// Add our own for singular but not for archive
+	// How do we do this most efficiently
+	// 
+	
 	add_action( 'genesis_entry_footer', 'genesis_oik_post_info' );
 	//add_filter( "genesis_edit_post_link", "__return_false" );
 	
   genesis_oik_register_sidebars();
 	
 	genesis_oik_edd();
+	
+	
+	/*
+	 * Hook into the AJAX request before WordPress, using priority 0
+	 */ 
+	add_action( 'wp_ajax_send-attachment-to-editor', 'dont_attach', 0 );
+
+	add_action( 'wp_title', "genesis_a2z_wp_title", 16, 3 );
+	add_filter( "genesis_seo_description", "genesis_a2z_seo_description", 10, 3 );
+	add_filter( "option_blogdescription", "genesis_a2z_option_blogdescription", 10, 2 );
+	
+	remove_action( "genesis_site_description", "genesis_seo_site_description" );
+	add_action( "genesis_site_description", "genesis_a2z_site_description" );
 
 }
 
-genesis_oik_functions_loaded();
+
+
+/** 
+ * Implement 'wp_title' filter after WPSEO_Frontend::title
+ * 
+ * If strip_tags is not enough we'll use wp_strip_all_tags
+ */
+function genesis_a2z_wp_title( $title, $sep, $seplocation ) {
+	$title = genesis_a2z_expand_shortcodes( $title, true );
+	return( $title );
+}
+
+
+function genesis_a2z_seo_description( $description, $inside, $wrap ) {
+
+	bw_trace2();
+	$description = genesis_a2z_expand_shortcodes( $description );
+	return( $description );
+}
+
+function genesis_a2z_expand_shortcodes( $content, $strip_tags=false ) {
+	bw_trace2();
+	if ( false !== strpos( $content, "[" ) ) {
+		do_action( "oik_add_shortcodes" );
+		$content = bw_do_shortcode( $content );
+	}
+	if ( $strip_tags ) {
+		$content = strip_tags( $content );
+	}
+	return( $content );
+}
+
+function genesis_a2z_option_blogdescription( $blogdescription, $option ) {
+	$blogdescription = genesis_a2z_expand_shortcodes( $blogdescription );
+	return( $blogdescription );
+}
+
+	
+
+/**
+ * Implement our own SEO site description... if we think we need it 
+ */	
+function genesis_a2z_site_description() {
+
+	//* Set what goes inside the wrapping tags
+	$inside = get_bloginfo( 'description' );
+
+	//* Determine which wrapping tags to use
+	$wrap = genesis_is_root_page() && 'description' === genesis_get_seo_option( 'home_h1_on' ) ? 'h1' : 'p';
+
+	//* Wrap homepage site description in p tags if static front page
+	$wrap = is_front_page() && ! is_home() ? 'p' : $wrap;
+
+	//* And finally, $wrap in h2 if HTML5 & semantic headings enabled
+	$wrap = genesis_html5() && genesis_get_seo_option( 'semantic_headings' ) ? 'h2' : $wrap;
+
+	/**
+	 * Site description wrapping element
+	 *
+	 * The wrapping element for the site description.
+	 *
+	 * @since 2.2.3
+	 *
+	 * @param string $wrap The wrapping element (h1, h2, p, etc.).
+	 */
+	$wrap = apply_filters( 'genesis_site_description_wrap', $wrap );
+
+	//* Build the description
+	$description  = genesis_html5() ? sprintf( "<{$wrap} %s>", genesis_attr( 'site-description' ) ) : sprintf( '<%s id="description">%s</%s>', $wrap, $inside, $wrap );
+	$description .= genesis_html5() ? "{$inside}</{$wrap}>" : '';
+
+	//* Output (filtered)
+	$output = $inside ? apply_filters( 'genesis_seo_description', $description, $inside, $wrap ) : '';
+
+	echo $output;
+
+}
+
+
