@@ -1,12 +1,12 @@
 /*   
-Theme Name: Genesis OIK
-Theme URI: http://www.oik-plugins.com/oik-themes/genesis-oik
-Description: Child theme of genesis framework with oik and image.php
+Theme Name: Genesis a2z
+Theme URI: http://www.oik-plugins.com/oik-themes/genesis-a2z
+Description: Child theme of genesis framework with oik and image.php for WP-a2z
 Author: Bobbing Wide  
 Author URI: http://www.oik-plugins.com/author/bobbingwide
-Version: 1.0.2
+Version: 1.0.3
 Template: genesis 
-Template Version: 2.1.3  
+Template Version: 2.2.6  
 Tags: oik, plugins, themes, shortcodes 
 License: GPL-2.0+  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
@@ -16,7 +16,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
 /**
- * Colour mapping from Genesis default to paap
+ * Colour mapping from Genesis default to a2z
  * 
  * | default color   |  oik color  | which is   | for what
  * |-----------------|------------- | ---------  | --------
@@ -937,7 +937,7 @@ img.alignright,
 }
 
 .site-title {
-	font-size: 32px;
+	font-size: 25px;
 	font-weight: 400;
 	line-height: 1.2;
 }
