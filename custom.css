@@ -1,0 +1,16 @@
+/* (C) Copyright Bobbing Wide 2015,2016 */
+/* custom.css for genesis-a2z theme */
+
+/* You probably want oik-custom.css - Herb 2015/11/26 */
+
+
+
+/* span.content { background-color: #fff; width: 100%; float: none; display: block; } */
+#adminmenu { transform: translateZ(0); }
+
+.post-type-archive h2,
+.post-type-archive-oik-plugins h2,
+.post-type-archive-oik_request h2 { 
+	font-size: 18px;
+}
+

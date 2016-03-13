@@ -1,0 +1,590 @@
+/* (C) Copyright Bobbing Wide 2012-2016 */
+#adminmenu { transform: translateZ(0); } 
+div.bw_css code { display: block; }
+
+div.textwidget img.bw_follow { width: 24px; }
+/* .art-postcontent */
+ .sd-content ul>li:before { content: none; }
+
+
+
+
+.bw_otd > li { color: #2c2c2c; border-bottom: 1px solid #2c2c2c; } 
+.bw_otd .bw_list li { font-size: 90%; }
+
+/* Remove the bullets from the outer list with class bw_otd */
+
+ul.bw_otd > li:before { content: " "; }
+
+ul.bw_inline { display: inline-block; margin: 0; }
+ul.bw_inline > li:before { content: " "; bottom: 0; padding: 0; }
+ 
+/* === start of copied from oik410130c/custom.css */
+
+/**
+ * Ensure button links in the sidebar appear without white padding 
+ */
+.sidebar #text-13,
+.sidebar #text-33,
+.sidebar #text-37 { 
+  background-color: transparent;
+  margin-bottom: 40px;
+}
+
+.sidebar #text-12 {
+  background-color: transparent;
+}
+
+/**
+ *
+ */
+.entry-content pre {
+	border: 1px solid #ededed;
+	line-height: 1.2;
+	padding: 10px;
+}
+
+a.page-numbers.current,
+a.page-numbers:hover,
+span.page-numbers.current {
+	/* background-color: #fce4d5;  */
+	box-shadow: 0 6px 4px -4px #5b6021;
+}	
+
+#text-24 div.textwidget > div:nth-child(odd) {
+	//border-top: 1px solid grey;
+	//margin-left: 10px;
+	background-color: #f5f5f5;
+	padding: 5px;
+}
+
+span.bw_follow_me:hover { 
+	color: #5b5f13;
+}	
+
+
+
+a.wordpress, 
+.art-blockcontent a.wordpress,
+.art-postcontent a.wordpress { display: inline-block; text-align: center; padding: 0;  color: #fff;
+              -moz-border-radius: 3px; border-radius: 3px; border: none; text-shadow: rgba(0,0,0,0.5) 0 1px 0; text-decoration: none; padding: 3%;
+              background: #eb672b; margin: 1% auto; text-align: center; }
+a.wordpress:hover { color: #fff; text-decoration: none; }
+              
+a.download, 
+.art-blockcontent a.download,
+.art-postcontent a.download  { display: inline-block; 
+ text-align: center; padding: 0;  color: #fff;
+              -moz-border-radius: 3px; border-radius: 3px; border: none; text-shadow: rgba(0,0,0,0.5) 0 1px 0; text-decoration: none; padding: 3%;
+              margin: 1% auto; text-align: center;
+              background: #5b5f13; }
+/*.art-postcontent a.download { float: right; }               */
+a.download.previous { background-color: #99993d; }
+
+a.download span.version { display: block; }
+a.button.download.art-button { color: #ffffff; }
+a.button.download.art-button:hover { color: #ffffff; }
+
+
+div.oik-members { background-color: #e5e5e5; width: 90%; padding-left: 5%; padding-right: 5%; padding-top: 1%; padding-bottom: 1%; 
+box-shadow: #999 4px 4px 3px; }
+
+form#loginform { display: inline; }
+form#loginform p { display: inline; }
+
+
+div.register { padding: 8px; background-color: #008811;  width: 60%; }
+div.register a {    color: white; font-size: 120%; }
+
+
+/* === end of copied from oik410130c/custom.css */
+
+
+
+.art-article form td, form td  { border: none; }
+
+body.effort_page_bw_effort_add_lots { background-color: #dddddd; }
+img.bw_logo { max-height: 150px; }
+textarea { max-width: 97%; margin: 0px; }
+/* div.bw_attachment span.title { display: none; } */
+
+div.bw_attachment { position: relative; margin: 0 auto 0; text-align: center; }
+
+/*
+div.bw_attachment span.title { display: block; position: relative; bottom: -5px; color: #575756; background: #c2c2c2;
+margin: 0 20% 0 20%; opacity: 0.8; box-shadow: 4px 4px 3px #1c1c1b;
+*/
+div.bw_attachment img { border: 1px solid #5b6021;  }
+
+
+div.bw_attachment span.title { display: block; position:relative;
+margin: 0 auto 0;
+bottom: 20px;
+padding: 8px 15px;
+margin-bottom: 4px;
+}
+/** Removed 2015/07/17
+color: #fff;
+
+* left: 30px; *
+background: rgba( 30, 30, 30, 0.9 );
+background-color: #5b6021;
+text-shadow: 0 1px 3px rgba( 0, 0, 0, 0.4 );
+-webkit-box-shadow: 0 0 30px rgba( 255, 255, 255, 0.1 );
+-moz-box-shadow: 0 0 30px rgba( 255, 255, 255, 0.1 );
+box-shadow: 0 0 30px rgba( 255, 255, 255, 0.1 );
+-webkit-border-radius: 8px;
+border-radius: 8px;
+max-width: 50%;
+}
+*/
+
+div.bw-huge { font-family: "Trebuchet MS", Verdana, fantasy;font-style: italic;padding: 0; font-size: 900%; }
+.art-blockheader .t { white-space: normal; }
+
+/* Override the min-width in the main theme */
+body, .art-sheet { min-width: 20px; }
+/* body { min-width: 320px; } */
+.art-sheet-body { min-width: 0px; }
+/* .art-sheet, .art-nav, div.art-header { min-width: 320px; }  */
+
+
+/* .art-header div.tel { font-size: 130%; text-shadow: white 0px 1px 1px; } */
+/* div.w33pc .art-blockheader:before, div.w33pc .art-blockheader:after { background-image: none; background: #4B852E;   } */
+/* div.w33pc .art-blockheader .t { color: white; } */
+
+/* div.art-block img.bw_thumbnail { max-height: 100%; border: 1px;} */
+/* div.avatar { border: none; } */
+div.post-21 div.art-postcontent span.title{ margin-top: 50px; display:block; }
+
+div.post-21 div.art-postcontent div.avatar{ margin-top: -50px }
+
+
+/* Adjust the widths of the header widgets so that the logo is narrower and the text is wider 
+   alcs = art-layout-cell-size
+*/
+
+/* Don't have any margins in the header blocks */
+.art-header .art-block { margin: 0; }  
+body.home div.nivo-controlNav { left: 0%; margin-left: 0px;  }
+
+
+div.alcs-3-header { width: 64.166666%; overflow: auto; } 
+div.alcs-3-header2 { width: 12.5%; overflow: auto;}
+div.alcs-3-header3 { width 23.33333%; overflow: auto; }
+
+div.w200 { max-width: 200px; float:left; max-height: 200px; }
+div.w150 { max-width: 150px; float:left; } 
+div.w200 div.nivo-controlNav { display: none; }
+div.w200 div.ribbon { min-height: 20px; }
+
+/* select.select-menu { /* z-index: 10; */ clear: both; } */
+
+
+/* for a span immediately following an image make it behave as a block */
+img + span { display: block; }
+
+.w33pc { width: 32.333%; padding-right: 1%;  }
+  
+
+.art-header div.tel { font-size: 130%; text-shadow: white 0px 1px 1px; }
+
+/* div.w33pc .art-blockheader:before, div.w33pc .art-blockheader:after { background-image: none; background: #4B852E;   } */
+/* div.w33pc .art-blockheader .t { color: white; } */
+
+ 
+/* This is the place where we put media query information on the page. 
+   e.g. content: "  min-width: 960px";
+*/
+
+
+a.bw_logo img { padding: 2px; background-color: #ffffff; }
+div.art-4 { text-align: right; margin-top: 4px; }
+div.art-4 img { padding-top: 4px; }
+ul.art-hmenu { text-transform: lowercase; }
+
+/* div.art-logo { left: 35% } */
+
+div.art-logo
+{
+   display: block;
+   position: relative;
+   top: 12px;
+   margin-left: 0px; 
+
+}
+div.art-logo-text { text-shadow: 0 1px 0 #f9fafa; }
+ /* Here we shift the content to the right and force the sidebar to go to the left 
+ .art-content { float:right; width: 75%; }
+ .art-content-layout .art-sidebar1 { float: right; } 
+ */
+ div#text-11 .art-blockcontent-body { text-align: right; }
+ 
+.art-nav-outer{ position:relative;  width:100%; }
+
+div.w30p5 { float: left; width: 25%; padding-right: 5%; }
+div.w40p5 { float: left; width: 35%; padding-right: 5%; }
+div.w50p5 { float: left; width: 45%; padding-right: 5%; }
+div.w60p5 { float: left; width: 55%; padding-right: 5%; }
+div.w70p5 { float: left; width: 70%; padding-right: 5%; }
+
+/* .art-blockcontent-body::before  { background-image: none; } */
+div.art-logo-text { font-size: 24px; }
+
+
+.responsive.responsive-tablet .art-vmenublock,
+.responsive.responsive-tablet .art-block
+{
+   margin-left: 1%;
+   margin-right: 1%;
+   width: 98% !important;
+   float: left;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+}
+
+a.wordpress, 
+.art-blockcontent a.wordpress,
+.art-postcontent a.wordpress { display: inline-block; text-align: center; padding: 0;  color: #fff;
+              -moz-border-radius: 3px; border-radius: 3px; border: none; text-shadow: rgba(0,0,0,0.5) 0 1px 0; text-decoration: none; padding: 3%;
+              background: #eb672b; margin: 1% auto; text-align: center; }
+a.wordpress:hover { color: #fff; text-decoration: none; }
+              
+a.download, 
+.art-blockcontent a.download,
+.art-postcontent a.download  { display: inline-block; 
+ text-align: center; padding: 0;  color: #fff;
+              -moz-border-radius: 3px; border-radius: 3px; border: none; text-shadow: rgba(0,0,0,0.5) 0 1px 0; text-decoration: none; padding: 3%;
+              margin: 1% auto; text-align: center;
+              background: #5b5f13; }
+/*.art-postcontent a.download { float: right; }               */
+
+a.download span.version { display: block; }
+a.button.download.art-button { color: #ffffff; }
+a.button.download.art-button:hover { color: #ffffff; }
+
+span.bw_plug { display: inline; }
+
+/**
+ * Styling for Black Friday and Cyber Monday
+ */
+.black,
+.black .entry,
+.black h1.entry-title ,
+.black h3 { 
+	color: white; 	
+	background-color: black; 
+	text-align: center;
+}
+.black h3 {  padding: 5px 5px 0px 5px;}
+/* 
+.black .entry { background-color: black; text-align: center;}
+h1.entry-title { color: white; }
+[/bw_css]
+*/
+
+
+/**
+ * EDD styling
+ */
+div.edd_cart_item_image { 
+	display: inline-block;
+	margin-right: 2%; 
+}
+
+/**
+ * Styling for nested definition lists
+ */
+dl dl { 
+	margin-left: 5%;
+	color: #555;
+}
+
+// MEDIA MEDIA MEDIA MEDIA queries start here
+
+/*
+ * -moz-     Firefox 
+ * -ms-      IE
+ * -o-       Opera
+ * -webkit-  Chrome, Safari 
+ * 
+ * visit http://resizemybrowser.com for a summary of popular browser window sizes
+ *  
+ *
+ * Sample CSS for ease of testing responsive websites using the Firefox/Firebug Resize menu option 
+ * Figures in pixels. When defining the size select Viewport Yes
+ *
+ * Width Height Device type   Notes
+ * ----- ------ ------------- --------
+ *   320    480 iPhone 3G/3Gs portrait
+ *   480    320 iPhone 3G/3Gs landscape
+ *   640    960 iPhone 4      portrait    device pixel ratio 2
+ *   768   1024 iPad          portrait
+ *   960    640 iPhone 4      landscape   device pixel ratio 2
+ *  1024    768 iPad          landscape
+ *  1136    640 iPhone 5      landscape   device pixel ratio 2   326 ppi  also iPod touch
+ *
+ *   666    601 half screen   portrait - obtained using Windows Key amd left/right arrow (full 1366x618 )
+ *   782    763 half w screen portrait - half of a big screen (1600/780 )
+ *
+ */
+
+
+@media screen and ( max-width: 1024px ) {
+  /* div.art-header { width: 95%; }  */
+  .art-header-inner .art-textblock { display: block; }
+  
+  /* div.art-logo { left: 150px; margin-left: 0px; position: relative; } */
+  div.art-logo .art-logo-name a { font-size: 80%;}  
+   
+  /* div.art-logo .art-logo-text { font-size: 150%; } */
+}/*/mediaquery*/
+  
+
+ 
+/* Min-width 960 is for a normal size screen - iPhone 4 in landscape or higher */
+@media screen and ( min-width: 960px ) {
+  .art-header-inner .art-textblock { display: block; } 
+}/*/mediaquery*/
+
+ 
+@media screen and ( max-width: 959px ) {
+
+  .art-header-inner .art-textblock { display: none; } 
+  /* Turn off the separator bar */
+  ul.art-hmenu > li:before { display:none; width: 0px; }
+  ul.art-hmenu > li > a { padding-left: 5px; padding-right: 5px; }
+  
+  .art-nav:before, .art-nav:after {  background-image: none; background-size: 100% 100%; }
+}/*/mediaquery*/  
+
+@media screen and ( max-width: 768px ) {
+
+  div.span-24, span-24 { max-width: 100%; }
+  div.span-23, span-23 { max-width: 100%; }
+  div.span-22, span-22 { max-width: 100%; }
+  div.span-21, span-21 { max-width: 100%; }
+  div.span-20, span-20 { max-width: 100%; }
+  
+  .art-header-inner .art-textblock { display: none; } 
+  
+
+}/*/mediaquery*/
+
+/*
+@media screen and ( min-width: 768px ) {
+  .art-content-layout { table-layout: auto; }
+  .art-content-layout-row { display: table-row; } 
+  .art-content { width: 80%; }
+  .art-content-layout .art-sidebar1 { width: 20%; }     
+
+} */
+/*/mediaquery*/
+
+/* half page - 666 x 601 */
+@media screen and ( max-width: 666px ) {
+
+  div.span-19, span-19 { max-width: 100%; }
+  div.span-18, span-18 { max-width: 100%; }
+  div.span-17, span-17 { max-width: 100%; }
+  
+  
+   div.art-logo .art-logo-name a { font-size: 80%; }   
+  /* div.art-logo .art-logo-text { font-size: 150%; } */
+  body, .art-nav { min-width: 100%; }
+  
+  ul.art-hmenu { float: left; }
+  
+  ul.art-hmenu>li:first-child {
+     margin-left:9px;
+  }
+  
+  ul.art-hmenu li  { width: 46%;  margin-right: 0; }
+  ul.art-hmenu li:nth-child(even) {
+		margin-left: 3%;
+		margin-right: 0;
+	}
+        
+  ul.art-hmenu li a {
+		-moz-border-radius: 0.25em;
+		-webkit-border-radius: 0.25em;
+		border-radius: 0.25em;
+		margin-bottom: 0;
+	}
+  ul.art-hmenu li li:nth-child(even) { margin-left: 0%; }      
+
+/* begin Box, Sheet */
+.art-sheet
+{
+   margin-top: -3px;
+   margin-bottom: -3px;
+   cursor:auto;
+   min-width: 100%;
+   background-color: #ffffff; 
+}
+
+
+ .art-content { width: 100%; }
+ .art-content-layout .art-sidebar1 { clear:both; width: 100%;} 
+ .art-content-layout-row { display: block; } 
+ .art-header .art-content-layout-row { display: table-row; }  
+
+.w40pc, .w50pc, .w60pc { width: 100%; float: none; }
+
+/* Make tables smaller */
+th { word-wrap: break-word; }  
+.art-article th { padding: 3px 0px 3px 0px; }
+table { font-size: 80%; }
+.art-logo-name { color: #444444 !important;} 
+.art-logo-text { color: #666666 !important; font-size: 40%; }
+
+/* div.art-headerobject { max-width: 100%; width: 50%; height: 50%; background-repeat: no-repeat; } */
+/* .alcs-3-header3 div.tel { font-size: 90%; } */
+
+
+}/*/mediaquery*/
+
+/* half page - 640 x 960 */
+@media screen and ( max-width: 640px ) {
+
+  ul.art-hmenu>li, 
+  ul.art-hmenu>li:first-child {
+     margin-left:0px;
+  }
+
+  ul.art-hmenu li  {
+		margin-bottom: 0.1em;
+		margin-right: 0;
+	}
+  ul.art-hmenu li:nth-child(even) {
+		margin-left: 0;
+		margin-right: 0;
+	}
+  ul.art-hmenu li a {
+		-moz-border-radius: 0.25em;
+		-webkit-border-radius: 0.25em;
+		border-radius: 0.25em;
+		margin-bottom: 0;
+	}
+        
+ .art-header .art-content-layout-row { display: table-row; } 
+
+ .art-content { width: 100%; }
+ .art-content-layout .art-sidebar1 { clear:both; width: 100%; float:right;}  
+ .art-content-layout-row { display: block; }
+ .w40pc, .w50pc, .w60pc { width: 100%; float: none; }
+
+}/*/mediaquery*/
+
+
+
+/* iPhone 3G/3GS landscape */
+@media screen and ( max-width: 480px ) {
+  /* div.art-logo { left: 120px; margin-left: 0px; position: relative; } */
+  div.art-logo .art-logo-name a { font-size: 60%;}   
+  .w33pc { width: 50% }
+
+  /* div.art-logo-text { display: none; } */
+  .alcs-3-header div.tel { font-size: 90%; }
+  .alcs-3-header span.type { font-size: 70%; }
+  .alcs-3-header div.textwidget img { width: 28px;  }
+
+div.w10pc, div.w20pc, div.w30pc, div.w40pc, div.w50pc, div.w60pc, div.w70pc, div.w80pc, div.w90pc {
+div.w30p5 
+div.w40p5 
+div.w50p5 
+div.w60p5
+div.w70p5 { float:left; width: 100%; padding-right: 0%; }
+
+}/*/mediaquery*/
+
+/* iPhone 3G/3GS portfolio */
+@media screen and ( max-width: 320px ) {
+
+  .w33pc { width: 100%; float: none; }
+  div.art-logo-name { font-size: 150%; }
+  div.art-logo-text { display: none; }
+
+  /* div.alcs-3-header2 { width: 41.166666%; overflow: auto; }  */
+  /* div.alcs-3-header3 { width 46.33333%; overflow: auto; } */
+  .alcs-3-header div.textwidget img { width: 24px;  }
+
+}/*/mediaquery*/
+
+
+
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+  span.width { color: green; }
+}/*/mediaquery*/
+
+
+/** Copied from the custom.css file from oik0918 */
+
+.art-footer-body ul#menu-footer li { background-image: none; }
+ul.bw_list li a, ul.bw_list li a:link { text-decoration: none ; }
+ul.bw_list li a:hover { text-decoration: underline ; }
+
+div.widget_featuredimagewidget div.art-block-body { padding: 0px 5px 0px 0px;  }
+div.widget_featuredimagewidget div.art-box-body { overflow: hidden; }
+img.wp-post-img { margin: 0px 0px 0px 0px  !important; }
+
+div.widget_featuredimagewidget   { max-width: auto;  }
+
+div.art-box-body div.avatar a img.bw_thumbnail { max-width: 100%; overflow:hidden;  }
+/* div.art-box-body div.avatar { margin: 0px; } */
+div.bw_pages div.art-blockcontent-body { max-width: 100%; padding: 0px; }
+/* div.avatar { max-width: auto;  margin:0px; border:0px;} */
+div.post-1463 p { border: black 1px dotted; background: #eeeeee; }
+.art-postcontent cite { margin-left: 150px; }
+
+div.banner { max-width: 772px; margin: 0 auto; min-height: 250px; }
+div.art-headerobject { background-image: url("images/oik-plugins.png"); background-repeat: no-repeat; left: 40%; margin-left: 0px;  }
+body { background-image: none; background-color: #ffffff;}
+#art-page-background-glare { background-image: none; }
+#art-page-background-middle-texture { background-image: none; }
+div.art-logo { top: 50px; }
+div.art-header { height: 105px; }
+
+/* ul.art-hmenu li li { z-index: 1000; }
+iframe.youtube-player { z-index: 0; }
+*/
+/* ul.art-hmenu > li > a { color: #937415; } */
+.art-logo-text  { color: #937415 !important; }
+
+
+
+.theme-norman .nivo-caption {
+    font-family: Times, serif;
+  font-weight: bold;
+  font-style: italic;
+  background:  #937415; 
+}
+.theme-norman .nivo-caption p { padding: 10px; text-align: center; }
+
+
+div.noicon a[href*='.pdf'] { background-image: none; padding-left: 3px; }
+div.mw200 div.slider-wrapper { max-width: 200px; }
+div.mh100 div.slider-wrapper div.nivoSlider { max-height: 100px ; }
+
+
+div.nivocenter {   border: 1px solid gray; margin: 0 auto; width: 300px;} 
+div.nivocenter div.slider-wrapper { margin: 0 auto; width: 200px;  border: 1px dotted gray; }
+div.nivocenter .nivo-caption {margin-left: -40px;  width: 140%;  }
+
+.imagegal .nivo-caption {  opacity: 0.0 !important; -webkit-transition: opacity 2s; transition: opacity 2s; }
+.imagegal .nivo-caption:hover {  opacity: 1.0 !important; } 
+
+#slider-6 a, #slider-7 a { display: block; }
+
+div#post-2 div.slider-wrapper { margin: 0 auto; }
+
+div.us_tides { background-color: #ffffff; font-size: 120%; padding: 5px; border: 1px dotted gray; text-align: center; }
+
+/* img { width: auto; max-width: 100%;} */
+div.bd-600 { min-height: 600px; }
+
+
+ 
