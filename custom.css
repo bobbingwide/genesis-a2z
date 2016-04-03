@@ -34,3 +34,73 @@
 	margin: 2px 0.5%;
 }
 
+
+div.footer-widgets-1 {
+	background-color: #e83327;
+	margin: 10px 1%;
+	padding: 10px 1% 0 1%;
+}
+div.footer-widgets-2 {
+	background-color: #27e833;
+  margin: 10px 1%;
+  padding: 10px 1% 0 1%;
+}
+
+div.footer-widgets-3 {
+	background-color: #3327e8;
+	margin: 10px 1%;
+	padding: 10px 1% 0 1%;
+}
+
+	
+div.footer-widgets-4 {
+  
+	margin: 10px 1%;
+}	
+
+div.footer-widgets {
+	margin-top: 20px;
+}
+
+div.footer-widgets h2 {
+	font-size: 400%;
+	font-weight: bold;
+	color: #ffffff;
+}
+
+
+/**
+ * Formatting for the hook shortcode
+ * Should this be in oik-shortcodes.css ?
+ <div class="hook">
+ <span class="indent-2">&nbsp;&nbsp;</span>
+ <a href="http://qw/wordpress/oik_hook/stylesheet_directory" title="stylesheet_directory - filter">stylesheet_directory – filter</a>
+ <span class="num_args">3</span>
+ <span class="count">1</span>
+ </div>
+ *
+ */
+div.hook { 
+	font-size: 15px;
+}
+
+.hook span.indent-1 { 
+	margin-left: 1%;
+ }
+.hook span.indent-2 {
+	margin-left: 2%;
+}
+.hook span.index-3 { 
+	margin-left: 3%;
+}
+
+.hook span.num_args {
+	padding: 0 10px;
+}
+
+.hook span.count {
+	padding: 0 10px;
+}
+	
+ 
+
