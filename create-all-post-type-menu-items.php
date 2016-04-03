@@ -4,6 +4,8 @@ function genesis_a2z_create_all_post_type_menu_items() {
 
 	$term_id = get_primary_menu(); 
 	
+	
+	
 	$post_types = bw_as_array( "oik-plugins,oik-themes,oik_shortcodes,oik_api,oik_file,oik_hook,oik_class,oik_request" );
 	
 	foreach ( $post_types as $post_type ) {
@@ -39,10 +41,16 @@ function genesis_a2z_create_all_post_type_menu_items() {
 
 function get_primary_menu( $name="Primary" ) {
 	$nav_menus = wp_get_nav_menus();
-	//print_r( $nav_menus );
-	
+	print_r( $nav_menus );
+	foreach ( $nav_menus as $key => $nav_menu ) {
+		echo $nav_menu->term_id;
+		echo " ";
+		echo $nav_menu->name; 
+		echo PHP_EOL;
+	}
+	$term_id = oikb_get_response( "Pick a menu", true );
 
-	return( 321 );
+	return( $term_id );
 }
 	
 	
