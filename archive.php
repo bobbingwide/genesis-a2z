@@ -30,6 +30,15 @@ function genesis_a2z_do_loop() {
 		do_action( 'genesis_loop_else' );
 	}
 }
+
+/**
+ * Enqueue special styles for archives
+ */
+function genesis_a2z_after_footer() {
+ bw_trace2();
+ bw_backtrace();
+ wp_enqueue_style( "archive-css", get_stylesheet_directory_uri() . '/archive.css', array() );
+}
 /*
  * Output from genesistant
  *
@@ -61,4 +70,6 @@ add_action( "genesis_entry_content", "genesis_do_post_permalink", 6 );
 remove_action( "genesis_loop", "genesis_do_loop" );
 add_action( "genesis_loop", "genesis_a2z_do_loop" );
 
+
+add_action( "genesis_after_footer", "genesis_a2z_after_footer" );
 genesis();

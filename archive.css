@@ -1,0 +1,30 @@
+/** (C) Copyright Bobbing Wide 2016
+ */
+ 
+
+.post-type-archive h2,
+.post-type-archive-oik-plugins h2,
+.post-type-archive-oik_request h2 { 
+	font-size: 18px;
+	margin: 0px 0px 0px 0px;
+}
+
+/**
+.post-type-archive .entry {
+	margin-bottom: 2px;
+	padding: 2px 20px;
+}
+*/
+
+.post-type-archive p {
+	margin: 0px;
+	padding: 0px;
+}
+
+.post-type-archive article {
+	width: 31.33333%; 
+	float: left;
+	padding: 2px 0.5%;
+	margin: 2px 0.5%;
+}
+

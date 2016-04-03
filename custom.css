@@ -8,12 +8,14 @@
 /* span.content { background-color: #fff; width: 100%; float: none; display: block; } */
 #adminmenu { transform: translateZ(0); }
 
+/**
 .post-type-archive h2,
 .post-type-archive-oik-plugins h2,
 .post-type-archive-oik_request h2 { 
 	font-size: 18px;
 	margin: 0px 0px 0px 0px;
 }
+*/
 
 /**
 .post-type-archive .entry {
@@ -22,6 +24,7 @@
 }
 */
 
+/**
 .post-type-archive p {
 	margin: 0px;
 	padding: 0px;
@@ -33,6 +36,7 @@
 	padding: 2px 0.5%;
 	margin: 2px 0.5%;
 }
+*/
 
 
 div.footer-widgets-1 {
