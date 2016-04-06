@@ -185,9 +185,9 @@ function genesis_oik_functions_loaded() {
 
 
 	//* Child theme (do not remove) - is this really necessary? 
-	define( 'CHILD_THEME_NAME', 'Genesis OIK' );
+	define( 'CHILD_THEME_NAME', 'Genesis a2z' );
 	define( 'CHILD_THEME_URL', 'http://www.bobbingwide.com/oik-themes' );
-	define( 'CHILD_THEME_VERSION', '1.0.3' );
+	define( 'CHILD_THEME_VERSION', '1.0.4' );
 
 	// Start the engine	- @TODO Is this necessary?
 	include_once( get_template_directory() . '/lib/init.php' );
