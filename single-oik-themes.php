@@ -1,14 +1,14 @@
-<?php // (C) Copyright Bobbing Wide 2015
-_e_c( __FILE__ );
+<?php // (C) Copyright Bobbing Wide 2015,2016
+//_e_c( __FILE__ );
 
 /**
- * Template file for the oik-plugins type
+ * Template file for the oik-themes type
  *
  * We do want:
  * - Title
  * - the content 
  * - the create date and modification date with Edit link
- * - Sidebar
+ * - Sidebar - which drops below
  
  * Sidebar widgets expected to be
  * - Information

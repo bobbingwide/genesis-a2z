@@ -540,14 +540,15 @@ td img { max-width: 14px; }
 /* ### Content */
 
 .content {
-	float: right;
-	width: 800px;
+	float: left;
+	width: 100%;
 }
 
 .content-sidebar .content,
 .content-sidebar-sidebar .content,
 .sidebar-content-sidebar .content {
 	float: left;
+	width: 100%;
 }
 
 .content-sidebar-sidebar .content,
@@ -563,8 +564,8 @@ td img { max-width: 14px; }
 /* ### Primary Sidebar */
 
 .sidebar-primary {
-	float: right;
-	width: 360px;
+	float: left;
+	width: 100%;
 }
 
 .sidebar-content .sidebar-primary,
@@ -1361,6 +1362,23 @@ li.comment {
 	margin-bottom: 40px;
 	padding: 20px;
 }
+
+/**
+ * Primary sidebar widget areas 
+ *
+ * In all cases the primary sidebar is below the main content
+ * Unlike footer widget areas, where we can have multiple footer widgets
+ * we just treat widget ( section ) as a block of a certain width 
+ * and style it within the aside.sidebar-primary so that they are nicely displayed
+ * .sidebar-primary is already 100% width
+ */
+ .sidebar-primary section.widget {
+	float: left;
+	width: 25%;
+	box-sizing: border-box;
+}
+ 
+ 
 
 
 /* # Footer Widgets

@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2015
+<?php // (C) Copyright Bobbing Wide 2015, 2016
 
 genesis_oik_functions_loaded();
 
@@ -58,6 +58,7 @@ function oik_footer_creds_text( $text ) {
  * "shortcode_example"
  * "download"
  * "oik-themes"
+ * "archive" pages - where we can't really show the "Information" widget
  *
  * We don't display sidebars for
  * 
@@ -71,7 +72,7 @@ function oik_footer_creds_text( $text ) {
  */
 function genesis_oik_register_sidebars() {
   //bw_backtrace();
-  $cpts = array( "oik-plugins", "oik_shortcodes", "shortcode_example", "download", "oik_pluginversion", "oik-themes" );
+  $cpts = array( "oik-plugins", "oik_shortcodes", "shortcode_example", "download", "oik_pluginversion", "oik-themes", "archive" );
   $theme_widget_args = array( );
   foreach ( $cpts as $cpt ) {
     $theme_widget_args['group'] = 'default';
@@ -120,12 +121,13 @@ function genesis_oik_post_info() {
  * Display the sidebar for the given post type
  *
  * Normally we just append -widget-area but for some post types we override it 
+ * For the archive page it's archive-widget-area
  *
  * Post type  | Sidebar used
  * ---------- | -------------
  * oik_premiumversion | oik_pluginversion-widget-area
  * oik_sc_param | sidebar-alt
- * 
+ * attachment | sidebar-alt
  * 
  */
 function genesis_oik_get_sidebar() {
@@ -136,7 +138,11 @@ function genesis_oik_get_sidebar() {
 		'context' => 'sidebar-primary',
 	) );
 	do_action( 'genesis_before_sidebar_widget_area' );
-	$post_type = get_post_type();
+	if ( is_archive() )	{
+		$post_type = "archive";
+	} else {
+		$post_type = get_post_type();
+	}	
 	$cpts = array( "oik_premiumversion" => "oik_pluginversion-widget-area" 
 							 , "oik_sc_param" => "sidebar-alt"
 							 , "attachment" => "sidebar-alt"

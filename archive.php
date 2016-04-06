@@ -39,6 +39,7 @@ function genesis_a2z_after_footer() {
  bw_backtrace();
  wp_enqueue_style( "archive-css", get_stylesheet_directory_uri() . '/archive.css', array() );
 }
+
 /*
  * Output from genesistant
  *
@@ -71,5 +72,13 @@ remove_action( "genesis_loop", "genesis_do_loop" );
 add_action( "genesis_loop", "genesis_a2z_do_loop" );
 
 
-add_action( "genesis_after_footer", "genesis_a2z_after_footer" );
+/*
+ * Use our own sidebar for archives
+ */
+remove_action( 'genesis_after_content', 'genesis_get_sidebar' );
+add_action( 'genesis_after_content', 'genesis_oik_get_sidebar' );
+
+
+//add_action( "genesis_after_footer", "genesis_a2z_after_footer" );
+add_action( "wp_enqueue_scripts", "genesis_a2z_after_footer" );
 genesis();

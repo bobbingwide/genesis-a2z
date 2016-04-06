@@ -104,7 +104,13 @@ div.register a {    color: white; font-size: 120%; }
 .art-article form td, form td  { border: none; }
 
 body.effort_page_bw_effort_add_lots { background-color: #dddddd; }
-img.bw_logo { max-height: 150px; }
+/**
+ * Only restrict in the header / footer widgets
+ */
+header img.bw_logo,
+div.footer-widgets img.bw_logo { 
+	max-height: 150px; 
+}
 textarea { max-width: 97%; margin: 0px; }
 /* div.bw_attachment span.title { display: none; } */
 
