@@ -45,6 +45,7 @@ function oik_footer_creds_text( $text ) {
 	$text .= ' <a href="//www.bobbingwide.com" title="Bobbing Wide - web design, web development">[bw]</a>';
 	$text .= '<br />';
 	$text .= '[bw_power]';
+	$text .= ' and <a href="//oik-plugins.com" title="oik plugins">oik plugins</a>';
   return( $text );
 }
 
@@ -247,6 +248,13 @@ function genesis_oik_functions_loaded() {
 	
 	remove_action( "genesis_site_description", "genesis_seo_site_description" );
 	add_action( "genesis_site_description", "genesis_a2z_site_description" );
+	
+	// Hide the genesis header
+	remove_action( "genesis_header", "genesis_header_markup_open", 5 );
+	remove_action( "genesis_header", "genesis_header_markup_close", 15 );
+	remove_action( "genesis_header", "genesis_do_header", 10 );
+	
+	add_filter( "genesis_breadcrumb_args", "genesis_a2z_breadcrumb_args" );
 
 }
 
@@ -265,7 +273,7 @@ function genesis_a2z_wp_title( $title, $sep, $seplocation ) {
 
 function genesis_a2z_seo_description( $description, $inside, $wrap ) {
 
-	bw_trace2();
+	//bw_trace2();
 	$description = genesis_a2z_expand_shortcodes( $description );
 	return( $description );
 }
@@ -326,6 +334,19 @@ function genesis_a2z_site_description() {
 
 	echo $output;
 
+}
+
+/**
+ * Implement "genesis_breadcrumb_args" for Genesis a2z
+ *
+ * We don't want a prefix.
+ * 
+ * @param array $args
+ * @return array updated args array
+ */
+function genesis_a2z_breadcrumb_args( $args ) {
+	$args['labels']['prefix'] = "";
+	return( $args );
 }
 
 
