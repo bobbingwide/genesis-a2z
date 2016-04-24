@@ -237,6 +237,7 @@ function genesis_a2z_functions_loaded() {
 	
 	// Remove post info
 	remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
+	remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
 	
 	// Add our own for singular but not for archive
 	// How do we do this most efficiently
