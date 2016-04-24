@@ -1,6 +1,6 @@
 <?php // (C) Copyright Bobbing Wide 2015, 2016
 
-genesis_oik_functions_loaded();
+genesis_a2z_functions_loaded();
 
 /**
  * Implement 'wp_ajax_send-attachment-to-editor' to not attach an unattached media item
@@ -75,7 +75,7 @@ function oik_footer_creds_text( $text ) {
       'after_widget' => '</widget>'
 	 `
  */
-function genesis_oik_register_sidebars() {
+function genesis_a2z_register_sidebars() {
   //bw_backtrace();
   $cpts = array( "oik-plugins", "oik_shortcodes", "shortcode_example", "download", "oik_pluginversion", "oik-themes", "archive" );
   $theme_widget_args = array( );
@@ -93,7 +93,7 @@ function genesis_oik_register_sidebars() {
  *
  * @TODO Do we need this for genesis-a2z?
  */
-function genesis_oik_edd() {
+function genesis_a2z_edd() {
 	add_filter( "edd_checkout_image_size", "goik_edd_checkout_image_size", 10, 2 );
 }
 
@@ -171,7 +171,7 @@ function genesis_oik_get_sidebar() {
 } 
 
 /**
- * Implement 'genesis_oik_pre_get_option_site_layout' filter 
+ * Implement 'genesis_a2z_pre_get_option_site_layout' filter 
  *
  * The _genesis_layout has not been defined so we need to decide based on the 
  * previous setting for the Artisteer theme.
@@ -180,7 +180,7 @@ function genesis_oik_get_sidebar() {
  * @param string $setting the current default setting 
  * @return string $layout which is either to have a sidebar or not
  */
-function genesis_oik_pre_get_option_site_layout( $layout, $setting ) {
+function genesis_a2z_pre_get_option_site_layout( $layout, $setting ) {
 	//bw_trace2();
 	$artisteer_sidebar = genesis_get_custom_field( "_theme_layout_template_default_sidebar" );
 	if ( $artisteer_sidebar ) {	
@@ -195,7 +195,7 @@ function genesis_oik_pre_get_option_site_layout( $layout, $setting ) {
 /**
  * Register the hooks for this theme
  */
-function genesis_oik_functions_loaded() {
+function genesis_a2z_functions_loaded() {
 
 
 	//* Child theme (do not remove) - is this really necessary? 
@@ -231,7 +231,7 @@ function genesis_oik_functions_loaded() {
 
 	add_filter( 'genesis_footer_creds_text', "oik_footer_creds_text" );
 	
-  add_filter( 'genesis_pre_get_option_site_layout', 'genesis_oik_pre_get_option_site_layout', 10, 2 );
+  add_filter( 'genesis_pre_get_option_site_layout', 'genesis_a2z_pre_get_option_site_layout', 10, 2 );
 	
 	remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 	
@@ -245,9 +245,9 @@ function genesis_oik_functions_loaded() {
 	add_action( 'genesis_entry_footer', 'genesis_oik_post_info' );
 	add_filter( "genesis_edit_post_link", "__return_false" );
 	
-  genesis_oik_register_sidebars();
+  genesis_a2z_register_sidebars();
 	
-	genesis_oik_edd();
+	genesis_a2z_edd();
 	
 	
 	/*
