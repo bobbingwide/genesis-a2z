@@ -237,12 +237,6 @@ function genesis_a2z_functions_loaded() {
 	
 	// Remove post info
 	remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
-	remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
-	
-	// Add our own for singular but not for archive
-	// How do we do this most efficiently
-	// 
-	
 	add_action( 'genesis_entry_footer', 'genesis_oik_post_info' );
 	add_filter( "genesis_edit_post_link", "__return_false" );
 	
@@ -269,8 +263,32 @@ function genesis_a2z_functions_loaded() {
 	remove_action( "genesis_header", "genesis_do_header", 10 );
 	
 	add_filter( "genesis_breadcrumb_args", "genesis_a2z_breadcrumb_args" );
+	
+	add_action( "wp", "genesis_a2z_wp_query" );
 
 }
+
+/**
+ * Implement 'wp' action for genesis-a2z
+ * 
+ * Adjust filters when we know what's what.
+ *
+ * When the theme's functions.php file is first loaded it's too early to make a decision about
+ * certain hooks. 
+ *
+	// Add our own for singular but not for archive
+	// How do we do this most efficiently
+ */
+function genesis_a2z_wp_query() { 
+	global $wp_query;
+	bw_trace2( $wp_query, "wp_query", false );
+	bw_backtrace();
+	
+	if ( !is_archive() ) {
+		remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
+	}
+}
+	
 
 
 
