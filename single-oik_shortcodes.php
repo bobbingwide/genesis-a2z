@@ -1,6 +1,6 @@
-<?php // (C) Copyright Bobbing Wide 2015
+<?php // (C) Copyright Bobbing Wide 2015, 2016
 /**
- * Template file for the oik-plugins type
+ * Template file for the oik-shortcodes type
  *
  * We do want:
  * - Title
@@ -10,7 +10,6 @@
  
  * Sidebar widgets expected to be
  * - Information
- * - Download links
  * - Search
  * 
  *

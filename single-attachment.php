@@ -1,6 +1,5 @@
 <?php // (C) Copyright Bobbing Wide 2015,2016
-//_e_c( __FILE__ );
-
+_e_c();
 /**
  * Template file for the attachment post type
  *
@@ -29,7 +28,7 @@
 add_theme_support( 'html5' );
 
 // Remove post info
-//remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
+remove_action( 'genesis_entry_header', 'genesis_do_post_title', 10 );
 
 // Remove breadcrumbs
 //remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );
