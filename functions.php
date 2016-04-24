@@ -31,9 +31,13 @@ function dont_attach( $blah ) {
 	//$_POST['post_id'] = 0;
 }
 
-
 /**
  * Display footer credits for the oik theme
+ *
+ * @TODO Reinstate link to bw when site migrated to Genesis theme framework
+ * 
+ * @param string $text Standard Genesis footer credits to override
+ * @return string What we actually want
  */	
 function oik_footer_creds_text( $text ) {
 	do_action( "oik_add_shortcodes" );
@@ -41,8 +45,8 @@ function oik_footer_creds_text( $text ) {
   $text .= '<br />';
 	$text .= "[bw_copyright]"; 
 	$text .= '<hr />';
-	$text .= 'Website designed and developed by [bw_link text="Herb Miller" herbmiller.me] of';
-	$text .= ' <a href="//www.bobbingwide.com" title="Bobbing Wide - web design, web development">[bw]</a>';
+	$text .= 'Website designed and developed by [bw_link text="Herb Miller" herbmiller.me]';
+	//$text .= ' of <a href="//www.bobbingwide.com" title="Bobbing Wide - web design, web development">[bw]</a>';
 	$text .= '<br />';
 	$text .= '[bw_power]';
 	$text .= ' and <a href="//oik-plugins.com" title="oik plugins">oik plugins</a>';
@@ -53,23 +57,23 @@ function oik_footer_creds_text( $text ) {
  * Register special sidebars 
  *
  * We support special sidebars for
- * "oik-plugins"
- * "oik_shortcodes"
- * "oik_pluginversion"
- * "shortcode_example"
- * "download"
- * "oik-themes"
- * "archive" pages - where we can't really show the "Information" widget
+ *   "oik-plugins"
+ *   "oik_shortcodes"
+ *   "oik_pluginversion"
+ *   "shortcode_example"
+ *   "download"
+ *   "oik-themes"
+ *   "archive" pages - where we can't really show the "Information" widget
  *
  * We don't display sidebars for
  * 
  * Everything else may have the default sidebar 
-   
+   `
 	 'before_widget' => '<widget id="%1$s" name="%1$s" class="widget %2$s">',
       'before_title' => '<title>',
       'after_title' => '</title>',
       'after_widget' => '</widget>'
-
+	 `
  */
 function genesis_oik_register_sidebars() {
   //bw_backtrace();
@@ -84,8 +88,12 @@ function genesis_oik_register_sidebars() {
   }
 }
 
+/**
+ * Set EDD checkout image size
+ *
+ * @TODO Do we need this for genesis-a2z?
+ */
 function genesis_oik_edd() {
-
 	add_filter( "edd_checkout_image_size", "goik_edd_checkout_image_size", 10, 2 );
 }
 
@@ -93,16 +101,19 @@ function goik_edd_checkout_image_size( $dimensions ) {
 	return( array( "auto", "auto" ) );
 }
 
-
 /**
  * Display the post info in our style
  *
- * We only want to display the post date and post modified date
- * plus the post_edit link. 
- * Note: The post edit link may appear multiple times
+ * We only want to display the post date and post modified date plus the post_edit link. 
+ * 
+ * Note: On some pages the post edit link appeared multiple times - so we had to find a way of fancy way
+ * of turning it off, except when we really wanted it. 
+ * Solution was to not use "genesis_post_info" but to expand shortcodes ourselves  
+ *
  *
  */
 function genesis_oik_post_info() {
+	remove_filter( "genesis_edit_post_link", "__return_false" );
 	$output = genesis_markup( array(
     'html5'   => '<p %s>',
     'xhtml'   => '<div class="post-info">',
@@ -113,9 +124,11 @@ function genesis_oik_post_info() {
 	$string .= ' | ';
 	$string .= sprintf( __( 'Last updated %1$s', 'genesis-oik' ), '[post_modified_date]' );
   $string .= ' [post_edit]';
-	$output .= apply_filters( 'genesis_post_info', $string);
+	//$output .= apply_filters( 'do_shortcodes', $string);
+	$output .= do_shortcode( $string );
 	$output .= genesis_html5() ? '</p>' : '</div>';  
 	echo $output;
+	add_filter( "genesis_edit_post_link", "__return_false" );
 }
 
 /**
@@ -230,7 +243,7 @@ function genesis_oik_functions_loaded() {
 	// 
 	
 	add_action( 'genesis_entry_footer', 'genesis_oik_post_info' );
-	//add_filter( "genesis_edit_post_link", "__return_false" );
+	add_filter( "genesis_edit_post_link", "__return_false" );
 	
   genesis_oik_register_sidebars();
 	
