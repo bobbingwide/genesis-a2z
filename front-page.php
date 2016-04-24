@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2015
+<?php // (C) Copyright Bobbing Wide 2015,2016
 /**
  * Template file for the home page
  *
@@ -14,5 +14,8 @@
 if ( !is_home() ) {
 	remove_action( "genesis_entry_header", "genesis_do_post_title" );
 }
+
+remove_action( "genesis_entry_content", "genesis_do_post_permalink", 14 );
+//add_filter( "genesis_edit_post_link", "__return_false" );
 genesis();
 
