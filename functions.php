@@ -310,9 +310,15 @@ function genesis_a2z_seo_description( $description, $inside, $wrap ) {
 	return( $description );
 }
 
+/**
+ * Force shortcode expansion if we can
+ *
+ * @param string $content which may contain shortcodes
+ * @param bool $strip_tags true if HTML tags are not allowed
+ */
 function genesis_a2z_expand_shortcodes( $content, $strip_tags=false ) {
-	bw_trace2();
-	if ( false !== strpos( $content, "[" ) ) {
+	bw_trace2( null, null, true, BW_TRACE_VERBOSE );
+	if ( false !== strpos( $content, "[" ) && did_action( "oik_loaded" ) ) {
 		do_action( "oik_add_shortcodes" );
 		$content = bw_do_shortcode( $content );
 	}
