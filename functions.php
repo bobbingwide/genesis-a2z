@@ -1,5 +1,10 @@
 <?php // (C) Copyright Bobbing Wide 2015, 2016
 
+//* Child theme (do not remove) - is this really necessary? 
+define( 'CHILD_THEME_NAME', 'Genesis a2z' );
+define( 'CHILD_THEME_URL', 'http://www.bobbingwide.com/oik-themes/genesis-a2z' );
+define( 'CHILD_THEME_VERSION', '1.0.5' );
+
 genesis_a2z_functions_loaded();
 
 /**
@@ -121,7 +126,9 @@ function genesis_oik_post_info() {
     'echo'    => false,
 	) );
 	$string = sprintf( __( 'Published %1$s', 'genesis-oik' ), '[post_date]' );
+	$string .= '<span class="splitbar">';
 	$string .= ' | ';
+	$string .= '</span>';
 	$string .= sprintf( __( 'Last updated %1$s', 'genesis-oik' ), '[post_modified_date]' );
   $string .= ' [post_edit]';
 	//$output .= apply_filters( 'do_shortcodes', $string);
@@ -196,19 +203,9 @@ function genesis_a2z_pre_get_option_site_layout( $layout, $setting ) {
  * Register the hooks for this theme
  */
 function genesis_a2z_functions_loaded() {
-
-
-	//* Child theme (do not remove) - is this really necessary? 
-	define( 'CHILD_THEME_NAME', 'Genesis a2z' );
-	define( 'CHILD_THEME_URL', 'http://www.bobbingwide.com/oik-themes' );
-	define( 'CHILD_THEME_VERSION', '1.0.4' );
-
 	// Start the engine	- @TODO Is this necessary?
 	include_once( get_template_directory() . '/lib/init.php' );
 	
-	if ( defined( "GENESIS_ALL" ) && GENESIS_ALL ) {
-  	add_action( "all", "genesis_all", 10, 2 );
-	}
 	//* Add HTML5 markup structure
 	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
 
