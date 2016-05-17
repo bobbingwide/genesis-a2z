@@ -387,4 +387,17 @@ function genesis_a2z_breadcrumb_args( $args ) {
 	return( $args );
 }
 
+/**
+ * Echo a comment
+ *
+ * @param string $string the text to echo inside the comment
+ */
+if ( !function_exists( "_e_c" ) ) { 
+function _e_c( $string ) {
+	echo "<!--\n";
+	echo $string;
+	echo "-->";
+}
+}
+
 
