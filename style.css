@@ -566,6 +566,7 @@ td img { max-width: 14px; }
 .sidebar-primary {
 	float: left;
 	width: 100%;
+	background-color: #ffffff;
 }
 
 .sidebar-content .sidebar-primary,
@@ -1442,7 +1443,14 @@ li.comment {
 	margin-bottom: 0;
 }
 
-.footer-widgets-1,
+.footer-widgets-1 {
+	width: 100%;
+}
+
+.footer-widgets-1 .menu-item {
+	display: inline-block;
+}
+
 .footer-widgets-2,
 .footer-widgets-3,
 .footer-widgets-4,
