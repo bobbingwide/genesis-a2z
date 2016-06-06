@@ -50,7 +50,7 @@ function oik_footer_creds_text( $text ) {
   $text .= '<br />';
 	$text .= "[bw_copyright]"; 
 	$text .= '<hr />';
-	$text .= 'Website designed and developed by [bw_link text="Herb Miller" herbmiller.me]';
+	$text .= 'Website designed and developed by [bw_link text="Herb Miller" herbmiller.me] [bw_follow_me theme=gener]';
 	//$text .= ' of <a href="//www.bobbingwide.com" title="Bobbing Wide - web design, web development">[bw]</a>';
 	$text .= '<br />';
 	$text .= '[bw_power]';
@@ -125,11 +125,13 @@ function genesis_oik_post_info() {
     'context' => 'entry-meta-before-content',
     'echo'    => false,
 	) );
-	$string = sprintf( __( 'Published %1$s', 'genesis-oik' ), '[post_date]' );
+	$string = sprintf( __( 'Published: %1$s', 'genesis-oik' ), '[post_date]' );
 	$string .= '<span class="splitbar">';
 	$string .= ' | ';
 	$string .= '</span>';
-	$string .= sprintf( __( 'Last updated %1$s', 'genesis-oik' ), '[post_modified_date]' );
+	$string .= '<span class="lastupdated">';
+	$string .= sprintf( __( 'Last updated: %1$s', 'genesis-oik' ), '[post_modified_date]' );
+	$string .= '</span>';
   $string .= ' [post_edit]';
 	//$output .= apply_filters( 'do_shortcodes', $string);
 	$output .= do_shortcode( $string );
@@ -215,16 +217,17 @@ function genesis_a2z_functions_loaded() {
 	// Add support for structural wraps
 	add_theme_support( 'genesis-structural-wraps', array(
 	 'header',
-	//	'nav',
-	//        'subnav',
-		'site-inner'
+	 'site-inner',
+	 'footer-widgets'
+		
 	) );
 
 	//* Add support for custom background
 	add_theme_support( 'custom-background' );
 
-	//* Add support for 5-column footer widgets - requires extra CSS
-	add_theme_support( 'genesis-footer-widgets', 5 );
+	//* Add support for 4-column footer widgets - requires extra CSS
+	
+	add_theme_support( 'genesis-footer-widgets', 2 );
 
 	add_filter( 'genesis_footer_creds_text', "oik_footer_creds_text" );
 	
