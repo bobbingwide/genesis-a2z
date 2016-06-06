@@ -5,6 +5,10 @@ div.bw_css code { display: block; }
 div.textwidget img.bw_follow { width: 24px; }
 /* .art-postcontent */
  .sd-content ul>li:before { content: none; }
+ 
+div.textwidget p.bw_code_syntax { 
+	display: none;
+}
 
 
 
