@@ -10,6 +10,17 @@ div.textwidget p.bw_code_syntax {
 	display: none;
 }
 
+ul#sections {
+	margin-left: 0px; 
+}
+
+a.bw_logo { display: block; float: left; margin-right: 5px; }
+
+span.blogname,
+span.blogdescription { 
+	/* padding: 0 5px 0 5px; */
+}
+
 
 
 
