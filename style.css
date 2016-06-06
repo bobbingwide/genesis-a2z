@@ -1375,7 +1375,7 @@ li.comment {
  */
  .sidebar-primary section.widget {
 	float: left;
-	width: 25%;
+	width: 33%;
 	box-sizing: border-box;
 }
  
@@ -1544,6 +1544,7 @@ li.comment {
 	.sidebar-content-sidebar .content,
 	.sidebar-content-sidebar .content-sidebar-wrap,
 	.sidebar-primary,
+	.sidebar-primary section.widget,
 	.sidebar-secondary,
 	.sidebar-sidebar-content .content,
 	.sidebar-sidebar-content .content-sidebar-wrap,
