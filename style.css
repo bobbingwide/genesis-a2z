@@ -514,7 +514,7 @@ td img { max-width: 14px; }
 
 .site-inner {
 	clear: both;
-	padding-top: 40px;
+	padding: 40px 25px 5px 25px;
 }
 
 /* ## Column Widths and Positions
@@ -1405,7 +1405,7 @@ li.comment {
    margin:0 auto;
    position: relative;
    color: #FFFFFF;
-   font-size: 13px;
+   font-size: 14px;
    font-family: Tahoma, Arial, Helvetica, Sans-Serif;
    /* text-align: center; */
 }
@@ -1443,32 +1443,16 @@ li.comment {
 	margin-bottom: 0;
 }
 
-.footer-widgets-1 {
-	width: 100%;
+.footer-widgets-1,
+.footer-widgets-2 {
+	width: 50%;
+	float: left;
 }
 
 .footer-widgets-1 .menu-item {
 	display: inline-block;
 }
 
-.footer-widgets-2,
-.footer-widgets-3,
-.footer-widgets-4,
-.footer-widgets-5 {
-	width: 20%;
-}
-
-
-.footer-widgets-1,
-.footer-widgets-2, 
-.footer-widgets-3,
-.footer-widgets-4 {
-	float: left;
-}
-
-.footer-widgets-5 {
-	float: right;
-}
 
 
 /* # Site Footer
@@ -1477,7 +1461,7 @@ li.comment {
 .site-footer {
 	background-color: #fff;
 	color: #1a1a2a;
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 1;
 	padding: 40px 0;
 	text-align: center;
@@ -1495,7 +1479,7 @@ li.comment {
 
 	.site-inner,
 	.wrap {
-		max-width: 960px;
+		/* max-width: 960px; */
 	}
 
 	.content-sidebar-sidebar .content-sidebar-wrap,
@@ -1519,12 +1503,9 @@ li.comment {
 	.footer-widgets-2,
 	.footer-widgets-3,
 	.title-area {
-		width: 300px;
+		width: 50%;
 	}
 
-	.footer-widgets-1 {
-		margin-right: 30px;
-	}
 
 }
 
@@ -1641,6 +1622,20 @@ li.comment {
 	.sidebar .widget.enews-widget {
 		padding: 40px;
 	}
+
+}
+
+@media only screen and ( max-width: 480px ) {
+
+	.site-inner,
+	.wrap {
+		padding-left: 1%;
+		padding-right: 1%;
+	}
+	
+	span.splitbar { display:none;  }
+	span.lastupdated { display: block; clear: both; }
+
 
 }
 
