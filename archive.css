@@ -28,3 +28,8 @@
 	margin: 2px 0.5%;
 }
 
+.post-type-archive article:nth-of-type(3n+1) { 
+	clear: both;
+}
+	
+
