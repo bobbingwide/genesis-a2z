@@ -3,7 +3,7 @@
 //* Child theme (do not remove) - is this really necessary? 
 define( 'CHILD_THEME_NAME', 'Genesis a2z' );
 define( 'CHILD_THEME_URL', 'http://www.bobbingwide.com/oik-themes/genesis-a2z' );
-define( 'CHILD_THEME_VERSION', '1.0.5' );
+define( 'CHILD_THEME_VERSION', '1.0.6' );
 
 genesis_a2z_functions_loaded();
 
