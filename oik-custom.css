@@ -1,4 +1,8 @@
 /* (C) Copyright Bobbing Wide 2012-2016 */
+
+
+
+
 #adminmenu { transform: translateZ(0); } 
 div.bw_css code { display: block; }
 
@@ -112,6 +116,7 @@ div.register a {    color: white; font-size: 120%; }
 
 
 /* === end of copied from oik410130c/custom.css */
+
 
 
 
@@ -321,7 +326,9 @@ dl dl {
 	color: #555;
 }
 
-// MEDIA MEDIA MEDIA MEDIA queries start here
+
+
+// * MEDIA MEDIA MEDIA MEDIA queries start here */
 
 /*
  * -moz-     Firefox 
@@ -349,6 +356,8 @@ dl dl {
  *   782    763 half w screen portrait - half of a big screen (1600/780 )
  *
  */
+ 
+/* import oik-custom-max-width-1024.css */
 
 
 @media screen and ( max-width: 1024px ) {
@@ -401,6 +410,7 @@ dl dl {
 
 } */
 /*/mediaquery*/
+
 
 /* half page - 666 x 601 */
 @media screen and ( max-width: 666px ) {
@@ -465,6 +475,7 @@ table { font-size: 80%; }
 
 }/*/mediaquery*/
 
+
 /* half page - 640 x 960 */
 @media screen and ( max-width: 640px ) {
 
@@ -499,6 +510,7 @@ table { font-size: 80%; }
 
 
 
+
 /* iPhone 3G/3GS landscape */
 @media screen and ( max-width: 480px ) {
   /* div.art-logo { left: 120px; margin-left: 0px; position: relative; } */
@@ -510,14 +522,15 @@ table { font-size: 80%; }
   .alcs-3-header span.type { font-size: 70%; }
   .alcs-3-header div.textwidget img { width: 28px;  }
 
-div.w10pc, div.w20pc, div.w30pc, div.w40pc, div.w50pc, div.w60pc, div.w70pc, div.w80pc, div.w90pc {
-div.w30p5 
-div.w40p5 
-div.w50p5 
-div.w60p5
+div.w10pc, div.w20pc, div.w30pc, div.w40pc, div.w50pc, div.w60pc, div.w70pc, div.w80pc, div.w90pc,
+div.w30p5, 
+div.w40p5, 
+div.w50p5, 
+div.w60p5,
 div.w70p5 { float:left; width: 100%; padding-right: 0%; }
 
 }/*/mediaquery*/
+
 
 /* iPhone 3G/3GS portfolio */
 @media screen and ( max-width: 320px ) {
@@ -542,6 +555,7 @@ only screen and (min-device-pixel-ratio : 1.5) {
 
 
 /** Copied from the custom.css file from oik0918 */
+
 
 .art-footer-body ul#menu-footer li { background-image: none; }
 ul.bw_list li a, ul.bw_list li a:link { text-decoration: none ; }
@@ -576,6 +590,7 @@ iframe.youtube-player { z-index: 0; }
 
 
 
+
 .theme-norman .nivo-caption {
     font-family: Times, serif;
   font-weight: bold;
@@ -605,6 +620,11 @@ div.us_tides { background-color: #ffffff; font-size: 120%; padding: 5px; border:
 
 /* img { width: auto; max-width: 100%;} */
 div.bd-600 { min-height: 600px; }
+
+
+div.bw_plug a.plugin { display: block; }
+
+
 
 
  
