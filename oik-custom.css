@@ -576,7 +576,11 @@ div.post-1463 p { border: black 1px dotted; background: #eeeeee; }
 
 div.banner { max-width: 772px; margin: 0 auto; min-height: 250px; }
 div.art-headerobject { background-image: url("images/oik-plugins.png"); background-repeat: no-repeat; left: 40%; margin-left: 0px;  }
-body { background-image: none; background-color: #ffffff;}
+
+body { 
+	background-image: none; 
+}
+
 #art-page-background-glare { background-image: none; }
 #art-page-background-middle-texture { background-image: none; }
 div.art-logo { top: 50px; }
