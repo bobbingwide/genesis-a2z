@@ -1,9 +1,9 @@
 <?php // (C) Copyright Bobbing Wide 2015, 2016
 
-//* Child theme (do not remove) - is this really necessary? 
+//* Child theme (do not remove) 
 define( 'CHILD_THEME_NAME', 'Genesis a2z' );
 define( 'CHILD_THEME_URL', 'http://www.bobbingwide.com/oik-themes/genesis-a2z' );
-define( 'CHILD_THEME_VERSION', '1.0.6' );
+define( 'CHILD_THEME_VERSION', '1.0.7' );
 
 genesis_a2z_functions_loaded();
 
@@ -266,6 +266,7 @@ function genesis_a2z_functions_loaded() {
 	
 	add_action( "wp", "genesis_a2z_wp_query" );
   add_theme_support( 'woocommerce' );
+	add_filter( "the_title", "genesis_a2z_the_title", 9, 2 );
 }
 
 /**
@@ -288,9 +289,6 @@ function genesis_a2z_wp_query() {
 		remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
 	}
 }
-	
-
-
 
 /** 
  * Implement 'wp_title' filter after WPSEO_Frontend::title
@@ -399,5 +397,47 @@ function _e_c( $string ) {
 	echo "-->";
 }
 }
+
+/**
+ * Implement 'the_title' for genesis-a2z
+ * 
+ * We want to wrap the Summary in a span tag with class="summary"
+ * 
+ * We cater for the fact that the following filters may be applied 
+ * by implementing our filter before these.
+ * `
+ * : 10   wptexturize;1 convert_chars;1 trim;1 do_shortcode;1
+ * : 11   capital_P_dangit;1
+ * `
+ * 
+ * Find   | Convert to
+ * ------ | ----------
+ * func() - blah | func() span - blah espan 
+ * this - that | this span- that espan
+ *
+ * 
+ * Note: We don't expect both '()' and '-' in the text 
+ * 	
+ * @param string $text the post title being filtered
+ * @param ID $id post ID 
+ * @return string
+ */
+function genesis_a2z_the_title( $text, $id ) {
+	//bw_trace2();
+	$pos = strpos( $text, "() " );
+	if ( $pos ) {
+		$text = str_replace( "() ", '() <span class="summary">', $text );
+		$text .= "</span>";
+	}	else {
+		$pos = strpos( $text, " - " );
+		if ( $pos ) {
+			$text = str_replace( " - ", ' <span class="summary">- ', $text );
+			$text .= "</span>";
+		}
+	}	
+	return( $text );
+} 
+
+
 
 
