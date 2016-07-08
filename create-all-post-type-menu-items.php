@@ -1,5 +1,10 @@
 <?php // (C) Copyrigght Bobbing Wide 2016
 
+/**
+ * Syntax: oikwp create-all-post-type-menu-items.php
+ * from genesis-a2z directory
+ */
+
 function genesis_a2z_create_all_post_type_menu_items() {
 
 	$term_id = get_primary_menu(); 
