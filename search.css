@@ -1,0 +1,13 @@
+/** (C) Copyright Bobbing Wide 2016
+ */
+
+.search-results h2 {
+	font-size: 18px;
+	margin: 0px 0px 0px 0px;
+}
+
+.search-results .entry {
+	margin-bottom: 2px;
+	padding: 2px 20px;
+}	
+
