@@ -1,8 +1,9 @@
-<?php // (C) Copyright Bobbing Wide 2015,2016
+<?php // (C) Copyright Bobbing Wide 2016
+
 
 
 /**
- * Implement a tighter loop for archives
+ * Implement the loop for the home page
  * 
  * Basically we don't want any content except the featured image
  * 
@@ -10,7 +11,7 @@
  * one day we might look at {@link https://github.com/desandro/masonry}
  * 
  */
-function genesis_a2z_do_loop() {
+function genesis_a2z_home_do_loop() {
 	if ( have_posts() ) {
 		while ( have_posts() ) {
 			the_post();
@@ -22,7 +23,7 @@ function genesis_a2z_do_loop() {
 			do_action( 'genesis_entry_content' );
 			//echo '</div>';
 			//do_action( 'genesis_after_entry_content' );
-			//do_action( 'genesis_entry_footer' );
+			do_action( 'genesis_entry_footer' );
 			echo '</article>';
 			//do_action( 'genesis_after_entry' );
 		}
@@ -57,9 +58,10 @@ function genesis_a2z_after_footer() {
  * : 12   genesis_do_post_content_nav;1
  * : 14   genesis_do_post_permalink;1--> 
  */
-remove_action( "genesis_entry_content", "genesis_do_post_content", 10 );
-remove_action( "genesis_entry_content", "genesis_do_post_content_nav", 12 ); 
-remove_action( "genesis_entry_content", "genesis_do_post_permalink", 14 );
+//add_action( "genesis_entry_content", "genesis_do_post_content", 10 );
+//add_action( "genesis_entry_content", "genesis_do_post_content_nav", 12 ); 
+add_action( "genesis_entry_content", "genesis_do_post_permalink", 14 );
+
 add_action( "genesis_entry_content", "genesis_do_post_permalink", 6 );
  
 // Not necessary to remove these hooks if we don't invoke the action
@@ -70,7 +72,16 @@ add_action( "genesis_entry_content", "genesis_do_post_permalink", 6 );
 //remove_action( "genesis_entry_header", "genesis_do_post_format_image", 4 );
 
 remove_action( "genesis_loop", "genesis_do_loop" );
-add_action( "genesis_loop", "genesis_a2z_do_loop" );
+add_action( "genesis_loop", "genesis_a2z_home_do_loop" );
+
+
+//add_action( 'genesis_entry_header', 'genesis_post_info', 12 );
+
+
+add_action( 'genesis_entry_footer', 'genesis_post_meta' );
+
+add_action( 'genesis_entry_header', 'genesis_do_post_title' );
+	
 
 
 /*
