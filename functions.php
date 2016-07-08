@@ -265,7 +265,7 @@ function genesis_a2z_functions_loaded() {
 	add_filter( "genesis_breadcrumb_args", "genesis_a2z_breadcrumb_args" );
 	
 	add_action( "wp", "genesis_a2z_wp_query" );
-
+  add_theme_support( 'woocommerce' );
 }
 
 /**
