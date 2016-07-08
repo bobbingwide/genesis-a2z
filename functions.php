@@ -82,7 +82,7 @@ function oik_footer_creds_text( $text ) {
  */
 function genesis_a2z_register_sidebars() {
   //bw_backtrace();
-  $cpts = array( "oik-plugins", "oik_shortcodes", "shortcode_example", "download", "oik_pluginversion", "oik-themes", "archive" );
+  $cpts = array( "oik-plugins", "oik_shortcodes", "shortcode_example", "download", "oik_pluginversion", "oik-themes", "archive", "search" );
   $theme_widget_args = array( );
   foreach ( $cpts as $cpt ) {
     $theme_widget_args['group'] = 'default';
@@ -163,14 +163,18 @@ function genesis_oik_get_sidebar() {
 	do_action( 'genesis_before_sidebar_widget_area' );
 	if ( is_archive() )	{
 		$post_type = "archive";
+	} elseif ( is_search() ) {
+		$post_type = "search";
 	} else {
 		$post_type = get_post_type();
+		bw_trace2( $post_type, "post_type", false, BW_TRACE_VERBOSE );
 	}	
 	$cpts = array( "oik_premiumversion" => "oik_pluginversion-widget-area" 
 							 , "oik_sc_param" => "sidebar-alt"
 							 , "attachment" => "sidebar-alt"
 							 );
 	$dynamic_sidebar = bw_array_get( $cpts, $post_type, "$post_type-widget-area" ); 
+	bw_trace2( $dynamic_sidebar, "dynamic sidebar", false, BW_TRACE_VERBOSE );
 	dynamic_sidebar( $dynamic_sidebar );
 	do_action( 'genesis_after_sidebar_widget_area' );
 	genesis_markup( array(

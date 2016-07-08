@@ -77,15 +77,13 @@ add_action( "genesis_loop", "genesis_a2z_search_do_loop" );
 //add_action( 'genesis_entry_footer', 'genesis_post_meta' );
 
 add_action( 'genesis_entry_header', 'genesis_do_post_title' );
-	
-
 
 /*
- * Use our own sidebar for archives
+ * Use our own sidebar for search
  */
+add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_content_sidebar' );
 remove_action( 'genesis_after_content', 'genesis_get_sidebar' );
 add_action( 'genesis_after_content', 'genesis_oik_get_sidebar' );
-
 
 //add_action( "genesis_after_footer", "genesis_a2z_after_footer" );
 add_action( "wp_enqueue_scripts", "genesis_a2z_search_after_footer" );
