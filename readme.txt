@@ -4,7 +4,7 @@ Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: genesis, a2z, one-column, two-columns, sidebars, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments
 Requires at least: 4.4
 Tested up to: 4.5.2
-Version: 1.0.5
+Version: 1.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,13 @@ genesis-a2z is a child theme for the Genesis Theme Framework, implemented on WP-
 
 
 == Change Log ==
+= 1.0.7 = 
+* Changed: Improve styling and display on archive pages and lists [github bobbingwide genesis-a2z issue 4]
+* Fixed: Correct oik-custom.css [github bobbingwide genesis-a2z issue 3]
+ 
+= 1.0.6 = 
+* Changed: v1.0.6 ( not zipped ) for Genesis v2.3.0 
+* Changed: Various styling improvements - see GitHub log for details
 
 = 1.0.5 =
 * Changed: Hide the header, mention oik-plugins in the footer, remove breadcrumb prefix
