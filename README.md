@@ -1,10 +1,11 @@
 # genesis-a2z 
+![screenshot](https://raw.githubusercontent.com/bobbingwide/genesis-a2z/master/screenshot.jpg)
 * Contributors: bobbingwide, vsgloik
 * Donate link: http://www.oik-plugins.com/oik/oik-donate/
 * Tags: genesis, a2z, one-column, two-columns, sidebars, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments
 * Requires at least: 4.4
-* Tested up to: 4.5.2
-* Version: 1.0.7
+* Tested up to: 4.7
+* Version: 1.0.8
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,9 +27,14 @@ genesis-a2z is a child theme for the Genesis Theme Framework, implemented on WP-
 
 
 ## Change Log 
+# 1.0.8 
+* Changed: Improve sidebar widgets width and footer on iPad landscape https://github.com/bobbingwide/genesis-a2z/issues/9
+* Changed: Archive and search should display a search form https://github.com/bobbingwide/genesis-a2z/issues/4
+* Tested: With WordPress 4.7 and Genesis v2.4.2
+
 # 1.0.7 
-* Changed: Improve styling and display on archive pages and lists [github bobbingwide genesis-a2z issue 4]
-* Fixed: Correct oik-custom.css [github bobbingwide genesis-a2z issue 3]
+* Changed: Improve styling and display on archive pages and lists https://github.com/bobbingwide/genesis-a2z/issues/4
+* Fixed: Correct oik-custom.css https://github.com/bobbingwide/genesis-a2z/issues/3
 
 # 1.0.6 
 * Changed: v1.0.6 ( not zipped ) for Genesis v2.3.0
@@ -46,7 +52,7 @@ genesis-a2z is a child theme for the Genesis Theme Framework, implemented on WP-
 * Fixed: various fixes for single CPT displays
 
 # 1.0.4 
-* Added: Add helper routine to create the all post type menu items [github bobbingwide genesis-a2z issues 2]
+* Added: Add helper routine to create the all post type menu items https://github.com/bobbingwide/genesis-a2z/issues/2
 * Added: Enqueue archive.css for archive.php
 * Changed: Improve archive layout, sidebar position and some styling
 * Changed: Styling for archive pages

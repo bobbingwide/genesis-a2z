@@ -1,7 +1,5 @@
 <?php // (C) Copyright Bobbing Wide 2016
 
-
-
 /**
  * Implement the loop for the home page
  * 
@@ -84,11 +82,12 @@ add_action( 'genesis_entry_header', 'genesis_do_post_title' );
 	
 
 
-/*
- * Use our own sidebar for archives
+/**
+ * Use our own sidebar for blog - well, not yet 
+ *
  */
 remove_action( 'genesis_after_content', 'genesis_get_sidebar' );
-add_action( 'genesis_after_content', 'genesis_oik_get_sidebar' );
+//add_action( 'genesis_after_content', 'genesis_oik_get_sidebar' );
 
 
 //add_action( "genesis_after_footer", "genesis_a2z_after_footer" );
