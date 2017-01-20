@@ -100,10 +100,16 @@ function genesis_a2z_register_sidebars() {
  */
 function genesis_a2z_edd() {
 	add_filter( "edd_checkout_image_size", "goik_edd_checkout_image_size", 10, 2 );
+	//remove_action( "edd_user_register", 'edd_process_register_form' ); 
+	add_action( "edd_process_register_form", "genesis_a2z_edd_process_register_form" );
 }
 
 function goik_edd_checkout_image_size( $dimensions ) {
 	return( array( "auto", "auto" ) );
+}
+
+function genesis_a2z_edd_process_register_form() {
+	edd_set_error( 'dummy-registration', __( 'You do realise this is just a demo site.', 'genesis-a2z' ) );
 }
 
 /**
@@ -210,7 +216,7 @@ function genesis_a2z_pre_get_option_site_layout( $layout, $setting ) {
  * Register the hooks for this theme
  */
 function genesis_a2z_functions_loaded() {
-	// Start the engine	- @TODO Is this necessary?
+	// Start the engine. Yes. It is necessary.
 	include_once( get_template_directory() . '/lib/init.php' );
 	
 	//* Add HTML5 markup structure
