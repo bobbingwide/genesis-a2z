@@ -4,16 +4,13 @@ Theme URI: http://www.oik-plugins.com/oik-themes/genesis-a2z
 Description: Child theme of Genesis Theme Framework with oik and image.php for WP-a2z
 Author: Bobbing Wide  
 Author URI: http://www.oik-plugins.com/author/bobbingwide
-Version: 1.0.8
+Version: 1.0.9
 Template: genesis 
 Template Version: 2.4.2
 Tags: oik, plugins, themes, shortcodes 
 License: GPL-2.0+  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 */
-
-//import url("../genesis/style.css" );
-
 
 /**
  * Colour mapping from Genesis default to a2z
@@ -1430,6 +1427,7 @@ li.comment {
 }
 
 .footer-widgets li {
+	padding: 0px 6px;
    /*     border-bottom: 1px dotted #666; */
 /*	margin-bottom: 10px; */
 /*	padding-bottom: 10px; */

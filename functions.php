@@ -1,40 +1,17 @@
-<?php // (C) Copyright Bobbing Wide 2015, 2016
+<?php // (C) Copyright Bobbing Wide 2015-2017
 
 //* Child theme (do not remove) 
 define( 'CHILD_THEME_NAME', 'Genesis a2z' );
-define( 'CHILD_THEME_URL', 'http://www.bobbingwide.com/oik-themes/genesis-a2z' );
-define( 'CHILD_THEME_VERSION', '1.0.7' );
+define( 'CHILD_THEME_URL', 'http://www.bobbingwide.com/blog/oik-themes/genesis-a2z' );
+
+if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
+	$timestamp = filemtime( get_stylesheet_directory() . "/style.css" );
+	define( 'CHILD_THEME_VERSION', $timestamp );
+} else { 
+	define( 'CHILD_THEME_VERSION', '1.0.9' );
+}
 
 genesis_a2z_functions_loaded();
-
-/**
- * Implement 'wp_ajax_send-attachment-to-editor' to not attach an unattached media item
- * 
- * In WordPress TRAC 22085 there was a change
- * that caused unattached media files (images) to be attached to posts if they are inserted into the post
- *
- * https://core.trac.wordpress.org/ticket/22085
- *
- * If you don't like this strategy you can disable it using this simple, rather hacky, action hook.
- * 
- * It relies on the following code being in wp_ajax_send_attachment_to_editor()
- *
- * `
- * if ( 0 == $post->post_parent && $insert_into_post_id = intval( $_POST['post_id'] ) ) {
- *     wp_update_post( array( 'ID' => $id, 'post_parent' => $insert_into_post_id ) );
- *  }
- * `
- *
- * It also relies on there being no other code that requires the post_id value.
- * If this were not the case we'd have to
- * - reset it in a later hook, which doesn't look particularly possible
- * - or implement a different solution to cause current_user_can() to fail
- * - or apply a pretend setting of $post->post_parent at the end of get_post()
- * 
- */
-function dont_attach( $blah ) {
-	//$_POST['post_id'] = 0;
-}
 
 /**
  * Display footer credits for the oik theme

@@ -3,8 +3,8 @@ Contributors: bobbingwide, vsgloik
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: genesis, a2z, one-column, two-columns, sidebars, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments
 Requires at least: 4.4
-Tested up to: 4.7
-Version: 1.0.8
+Tested up to: 4.7.3
+Version: 1.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,12 @@ genesis-a2z is a child theme for the Genesis Theme Framework, implemented on WP-
 
 
 == Change Log ==
+= 1.0.9 = 
+* Changed: Improve styling of the footer menu
+* Fixed: Prevent [edd_register] shortcode from actually completing, [github bobbingwide genesis-a2z issues 10]
+* Added: Support A to Z pagination [github bobbingwide genesis-a2z issue 5]
+* Changed: Improve styling and display om archive pages [github bobbingwide genesis-a2z issues 4]
+
 = 1.0.8 = 
 * Changed: Improve sidebar widgets width and footer on iPad landscape [github bobbingwide genesis-a2z issue 9]
 * Changed: Archive and search should display a search form [github bobbingwide genesis-a2z issue 4]
