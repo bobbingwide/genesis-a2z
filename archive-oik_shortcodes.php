@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2015,2016
+<?php // (C) Copyright Bobbing Wide 2015-2017
 
 /**
  * Special archive file for oik_shortcodes
@@ -11,7 +11,7 @@
  * 
  * This code is dependent upon oik
  */
-function genesis_oik_shortcode_not_defined() {
+function genesis_a2z_shortcode_not_defined() {
 	e( "Sorry, we're unable to display information for the selected shortcode." );
 	br( "The shortcode is not yet registered to this site." );
 	
@@ -34,7 +34,7 @@ function genesis_oik_shortcode_not_defined() {
 }
 
 remove_action( "genesis_loop_else", "genesis_do_noposts" );
-add_action( "genesis_loop_else", "genesis_oik_shortcode_not_defined" );
+add_action( "genesis_loop_else", "genesis_a2z_shortcode_not_defined" );
 //genesis();
 
 

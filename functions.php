@@ -103,7 +103,7 @@ function genesis_a2z_edd_process_register_form() {
  *
  *
  */
-function genesis_oik_post_info() {
+function genesis_a2z_post_info() {
 	remove_filter( "genesis_edit_post_link", "__return_false" );
 	$output = genesis_markup( array(
     'html5'   => '<p %s>',
@@ -137,6 +137,7 @@ function genesis_oik_post_info() {
  * oik_premiumversion | oik_pluginversion-widget-area
  * oik_sc_param | sidebar-alt
  * attachment | sidebar-alt
+ * post | sidebar-alt
  * 
  */
 function genesis_a2z_get_sidebar() {
@@ -228,7 +229,7 @@ function genesis_a2z_functions_loaded() {
 	
 	// Remove post info
 	remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
-	add_action( 'genesis_entry_footer', 'genesis_oik_post_info' );
+	add_action( 'genesis_entry_footer', 'genesis_a2z_post_info' );
 	add_filter( "genesis_edit_post_link", "__return_false" );
 	
   genesis_a2z_register_sidebars();
@@ -427,7 +428,61 @@ function genesis_a2z_the_title( $text, $id ) {
 		}
 	}	
 	return( $text );
-} 
+}
+
+ 
+
+/**
+ * Displays the A to Z pagination
+ */
+function genesis_a2z_a2z() {
+	$args = genesis_a2z_a2z_display_args();
+	$taxonomy = genesis_a2z_a2z_query_letter_taxonomy( "letters", $args );
+	do_action( "oik_a2z_display", $taxonomy, $args );
+}
+
+/**
+ * Determines the args to pass to oik_a2z_display
+ */
+function genesis_a2z_a2z_display_args() {
+	$args = array();
+	if ( is_archive() ) {
+		$post_type = get_query_var( "post_type" );
+		$args['post_type'] = $post_type;
+	}
+	return( $args );
+}
+
+/**
+ * Returns the Letter taxonomy associated to the post type
+ * 
+ * If post_type is not set then we return the 
+ */ 
+function genesis_a2z_a2z_query_letter_taxonomy( $taxonomy, $args ) {
+	$post_type = bw_array_get( $args, "post_type", null );
+	if ( $post_type ) {
+		$oik_letters = array( "oik_shortcodes" => "oik_letters"
+												, "oik_api" => "oik_letters"
+												, "oik_class" => "oik_letters"
+												, "oik_file" => "oik_letters"
+												, "oik_hook" => "oik_letters"
+												);
+		$taxonomy = bw_array_get( $oik_letters, $post_type, $taxonomy );
+	}
+	return( $taxonomy );
+}
+
+/**
+ * Displays the A to Z pagination for oik_letters
+ */
+function genesis_a2z_a2z_letters() {
+	$args = genesis_a2z_a2z_display_args();
+	$taxonomy = genesis_a2z_a2z_query_letter_taxonomy( "oik_letters", $args );
+	do_action( "oik_a2z_display", $taxonomy, $args );
+}
+
+
+
 
 
 

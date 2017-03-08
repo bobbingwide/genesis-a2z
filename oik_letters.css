@@ -1,0 +1,72 @@
+/** (C) Copyright Bobbing Wide 2016-2017
+ */
+.entry-title {
+	font-size: 18px;
+}
+.archive p {
+	margin: 0px;
+	padding: 0px;
+}
+
+.archive article {
+	width: 31.3333%; 
+	float: left;
+	padding: 1px 0.5%;
+	margin: 2px 0.5% 15px 0.5%;
+	position: relative; 
+	border: 1px solid #e0e0e0;
+	box-sizing: border-box;
+}
+
+
+.archive .entry {
+	background-color: #f0f0f0;
+}
+
+
+.archive article:hover {
+	border: 1px solid grey;
+	background: #e2e2e2;
+}
+
+
+.archive article:nth-of-type(3n+1) { 
+	clear: both;
+}
+
+/* // (C) Copyright Bobbing Wide 2017
+ * Default styling for the oik-a2z pagination list
+ *
+ */
+ 
+div.a2z { 
+	width: 100%;
+}
+ 
+ul.a2z {
+	display: block;
+}
+
+ul.a2z li a span.count { 
+	display: none;
+}
+
+@media screen and ( max-width: 768px ) {
+
+.archive article {
+	width: 48%;
+}
+
+}
+
+
+
+
+@media screen and ( max-width: 480px ) {
+
+.archive article {
+	width: 98%;
+}
+
+}
+

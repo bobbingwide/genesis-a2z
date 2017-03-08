@@ -1,7 +1,7 @@
-<?php // (C) Copyright Bobbing Wide 2016,2017
+<?php // (C) Copyright Bobbing Wide 2017
 
 /**
- * Implement the loop for the home page
+ * Implement a tighter loop for the Category archive
  * 
  * Basically we don't want any content except the featured image
  * 
@@ -9,7 +9,7 @@
  * one day we might look at {@link https://github.com/desandro/masonry}
  * 
  */
-function genesis_a2z_home_do_loop() {
+function genesis_a2z_do_loop() {
 	if ( have_posts() ) {
 		while ( have_posts() ) {
 			the_post();
@@ -21,7 +21,7 @@ function genesis_a2z_home_do_loop() {
 			do_action( 'genesis_entry_content' );
 			//echo '</div>';
 			//do_action( 'genesis_after_entry_content' );
-			do_action( 'genesis_entry_footer' );
+			//do_action( 'genesis_entry_footer' );
 			echo '</article>';
 			//do_action( 'genesis_after_entry' );
 		}
@@ -32,18 +32,18 @@ function genesis_a2z_home_do_loop() {
 }
 
 /**
- * Enqueue special styles for home page
- * 
- * Currently using archive.css
+ * Enqueue special styles for archives
  */
-function genesis_a2z_wp_enqueue_scripts() {
-	$timestamp = null;
+function genesis_a2z_after_footer() {
+ //bw_trace2();
+ //bw_backtrace();
+ 
+ 	$timestamp = null;
 	if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
-		$timestamp = filemtime( get_stylesheet_directory() . "/archive.css" );
+		$timestamp = filemtime( get_stylesheet_directory() . "/category.css" );
 	}
-	wp_enqueue_style( "archive-css", get_stylesheet_directory_uri() . '/archive.css', array(), $timestamp );
+ wp_enqueue_style( "category-css", get_stylesheet_directory_uri() . '/category.css', array() );
 }
-
 /*
  * Output from genesistant
  *
@@ -60,10 +60,10 @@ function genesis_a2z_wp_enqueue_scripts() {
  * : 12   genesis_do_post_content_nav;1
  * : 14   genesis_do_post_permalink;1--> 
  */
-//add_action( "genesis_entry_content", "genesis_do_post_content", 10 );
-//add_action( "genesis_entry_content", "genesis_do_post_content_nav", 12 ); 
-add_action( "genesis_entry_content", "genesis_do_post_permalink", 14 );
-
+remove_action( "genesis_entry_content", "genesis_do_post_image", 8 );
+remove_action( "genesis_entry_content", "genesis_do_post_content", 10 );
+remove_action( "genesis_entry_content", "genesis_do_post_content_nav", 12 ); 
+remove_action( "genesis_entry_content", "genesis_do_post_permalink", 14 );
 add_action( "genesis_entry_content", "genesis_do_post_permalink", 6 );
  
 // Not necessary to remove these hooks if we don't invoke the action
@@ -74,25 +74,12 @@ add_action( "genesis_entry_content", "genesis_do_post_permalink", 6 );
 //remove_action( "genesis_entry_header", "genesis_do_post_format_image", 4 );
 
 remove_action( "genesis_loop", "genesis_do_loop" );
-add_action( "genesis_loop", "genesis_a2z_home_do_loop" );
+add_action( "genesis_loop", "genesis_a2z_do_loop" );
 
 
-//add_action( 'genesis_entry_header', 'genesis_post_info', 12 );
+//add_action( "genesis_after_footer", "genesis_a2z_after_footer" );
+add_action( "wp_enqueue_scripts", "genesis_a2z_after_footer" );
 
-
-add_action( 'genesis_entry_footer', 'genesis_post_meta' );
-
-add_action( 'genesis_entry_header', 'genesis_do_post_title' );
-	
-
-
-/**
- * Use our own sidebar for blog - well, not yet 
- *
- */
-remove_action( 'genesis_after_content', 'genesis_get_sidebar' );
-//add_action( 'genesis_after_content', 'genesis_a2z_get_sidebar' );
-
-
-add_action( "wp_enqueue_scripts", "genesis_a2z_wp_enqueue_scripts" );
+add_action( "genesis_before_loop", "genesis_a2z_a2z", 9 );
+add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 genesis();
