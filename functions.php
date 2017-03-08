@@ -21,7 +21,7 @@ genesis_a2z_functions_loaded();
  * @param string $text Standard Genesis footer credits to override
  * @return string What we actually want
  */	
-function oik_footer_creds_text( $text ) {
+function genesis_a2z_footer_creds_text( $text ) {
 	do_action( "oik_add_shortcodes" );
 	$text = "[bw_wpadmin]";
   $text .= '<br />';
@@ -76,12 +76,15 @@ function genesis_a2z_register_sidebars() {
  * @TODO Do we need this for genesis-a2z?
  */
 function genesis_a2z_edd() {
-	add_filter( "edd_checkout_image_size", "goik_edd_checkout_image_size", 10, 2 );
+	add_filter( "edd_checkout_image_size", "ga2z_edd_checkout_image_size", 10, 2 );
 	//remove_action( "edd_user_register", 'edd_process_register_form' ); 
 	add_action( "edd_process_register_form", "genesis_a2z_edd_process_register_form" );
 }
 
-function goik_edd_checkout_image_size( $dimensions ) {
+/**
+ * Implements 'edd_checkout_image_size'
+ */
+function ga2z_edd_checkout_image_size( $dimensions ) {
 	return( array( "auto", "auto" ) );
 }
 
@@ -136,7 +139,7 @@ function genesis_oik_post_info() {
  * attachment | sidebar-alt
  * 
  */
-function genesis_oik_get_sidebar() {
+function genesis_a2z_get_sidebar() {
 	//* Output primary sidebar structure
 	genesis_markup( array(
 		'html5'   => '<aside %s>',
@@ -217,7 +220,7 @@ function genesis_a2z_functions_loaded() {
 	
 	add_theme_support( 'genesis-footer-widgets', 2 );
 
-	add_filter( 'genesis_footer_creds_text', "oik_footer_creds_text" );
+	add_filter( 'genesis_footer_creds_text', "genesis_a2z_footer_creds_text" );
 	
   add_filter( 'genesis_pre_get_option_site_layout', 'genesis_a2z_pre_get_option_site_layout', 10, 2 );
 	
