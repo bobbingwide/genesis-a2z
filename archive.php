@@ -1,5 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2015,2016
-
+<?php // (C) Copyright Bobbing Wide 2015-2017
 
 /**
  * Implement a tighter loop for archives
@@ -36,9 +35,11 @@ function genesis_a2z_do_loop() {
  * Enqueue special styles for archives
  */
 function genesis_a2z_after_footer() {
- bw_trace2();
- bw_backtrace();
- wp_enqueue_style( "archive-css", get_stylesheet_directory_uri() . '/archive.css', array() );
+	$timestamp = null;
+	if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
+		$timestamp = filemtime( get_stylesheet_directory() . "/archive.css" );
+	}
+	wp_enqueue_style( "archive-css", get_stylesheet_directory_uri() . '/archive.css', array(), $timestamp );
 }
 
 /*
