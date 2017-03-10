@@ -30,13 +30,14 @@ function genesis_a2z_do_loop() {
 
 /**
  * Enqueue special styles for oik_letters
+ * 
  */
 function genesis_a2z_wp_enqueue_scripts() {
 	$timestamp = null;
 	if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
 		$timestamp = filemtime( get_stylesheet_directory() . "/oik_letters.css" );
 	}
-	wp_enqueue_style( "oik_letters-css", get_stylesheet_directory_uri() . '/oik_letters.css', array(), $timestamp );
+	wp_enqueue_style( "oik-letters-css", get_stylesheet_directory_uri() . '/oik_letters.css', array(), $timestamp );
 }
 /*
  * Output from genesistant
