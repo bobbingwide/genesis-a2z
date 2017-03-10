@@ -2,6 +2,7 @@
  */
 .entry-title {
 	font-size: 18px;
+	margin: 0px 0px 0px 0px;
 }
 .archive p {
 	margin: 0px;
@@ -12,7 +13,7 @@
 	width: 31.3333%; 
 	float: left;
 	padding: 1px 0.5%;
-	margin: 2px 0.5% 15px 0.5%;
+	margin: 2px 0.5% 5px 0.5%;
 	position: relative; 
 	border: 1px solid #e0e0e0;
 	box-sizing: border-box;
