@@ -511,7 +511,7 @@ td img { max-width: 14px; }
 
 .site-inner {
 	clear: both;
-	padding: 40px 25px 5px 25px;
+	/* padding: 40px 25px 5px 25px; */
 }
 
 /* ## Column Widths and Positions
@@ -666,7 +666,7 @@ td img { max-width: 14px; }
 --------------------------------------------- */
 
 .breadcrumb {
-	margin-bottom: 20px;
+	margin-top: 20px;
 }
 
 .archive-description,
@@ -1241,7 +1241,7 @@ p.entry-meta {
 
 .pagination {
 	clear: both;
-	margin: 40px 0;
+	margin: 20px 0;
 }
 
 .adjacent-entry-pagination {
