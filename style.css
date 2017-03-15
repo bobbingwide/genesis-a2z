@@ -1257,8 +1257,8 @@ p.entry-meta {
 	color: #fff;
 	cursor: pointer;
 	display: inline-block;
-	font-size: 16px;
-	padding: 8px 12px;
+	font-size: 14px;
+	padding: 6px 6px;
 }
 
 .archive-pagination li a:hover,
@@ -1481,6 +1481,7 @@ li.comment {
 	.site-inner,
 	.wrap {
 		/* max-width: 960px; */
+		max-width: 96%;
 	}
 
 	.content-sidebar-sidebar .content-sidebar-wrap,
@@ -1577,7 +1578,7 @@ li.comment {
 
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 768px) {
 
 	body {
 		background-color: #fff;
@@ -1586,8 +1587,8 @@ li.comment {
 
 	.site-inner,
 	.wrap {
-		padding-left: 5%;
-		padding-right: 5%;
+		padding-left: 1%;
+		padding-right: 0%;
 	}
 
 	.archive-description,

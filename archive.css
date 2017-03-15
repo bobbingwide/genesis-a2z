@@ -1,4 +1,4 @@
-/** (C) Copyright Bobbing Wide 2016
+/** (C) Copyright Bobbing Wide 2016, 2017
  */
  
 
@@ -30,6 +30,19 @@
 
 .post-type-archive article:nth-of-type(3n+1) { 
 	clear: both;
+}
+
+
+div.a2z { 
+	width: 100%;
+}
+ 
+ul.a2z {
+	display: block;
+}
+
+ul.a2z li a span.count { 
+	display: none;
 }
 
 @media only screen and ( max-width: 768px ) {
