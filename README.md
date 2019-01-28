@@ -1,11 +1,11 @@
 # genesis-a2z 
-![screenshot](https://raw.githubusercontent.com/bobbingwide/genesis-a2z/master/screenshot.jpg)
+![screenshot](https://raw.githubusercontent.com/bobbingwide/genesis-a2z/master/screenshot.png)
 * Contributors: bobbingwide, vsgloik
-* Donate link: http://www.oik-plugins.com/oik/oik-donate/
+* Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: genesis, a2z, one-column, two-columns, sidebars, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments
-* Requires at least: 4.4
-* Tested up to: 4.7
-* Version: 1.0.8
+* Requires at least: 4.9.8
+* Tested up to: 5.0.3
+* Version: 1.1.0
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,6 +27,25 @@ genesis-a2z is a child theme for the Genesis Theme Framework, implemented on WP-
 
 
 ## Change Log 
+# 1.1.0 
+* Added: Add Blocks to the A to Z selection list https://github.com/bobbingwide/genesis-a2z/issues/13
+* Changed: Improve A to Z styling for iPad. Similar to genesis-oik
+* Added: Screenshot at 1200x900
+* Added: Add archive templates for oik_api, oik_class and oik_file
+* Changed: Change padding and margin to allow for letter taxonomy pagination
+* Changed: Copy some templates from genesis-oik issue 5
+* Changed: Rename genesis_oik to genesis_a2z  issue 12
+* Tested: With Genesis v2.8.0
+* Tested: With WordPress 5.0.3
+* Tested: With Gutenbeg 4.8.0
+* Tested: With PHP 7.2
+
+# 1.0.9 
+* Changed: Improve styling of the footer menu
+* Fixed: Prevent [edd_register] shortcode from actually completing, https://github.com/bobbingwide/genesis-a2z/issues/10
+* Added: Support A to Z pagination https://github.com/bobbingwide/genesis-a2z/issues/5
+* Changed: Improve styling and display om archive pages https://github.com/bobbingwide/genesis-a2z/issues/4
+
 # 1.0.8 
 * Changed: Improve sidebar widgets width and footer on iPad landscape https://github.com/bobbingwide/genesis-a2z/issues/9
 * Changed: Archive and search should display a search form https://github.com/bobbingwide/genesis-a2z/issues/4
@@ -79,7 +98,7 @@ genesis-a2z is a child theme for the Genesis Theme Framework, implemented on WP-
 * Added: Other styling delivered in oik-custom.css - from oik-plugins.com
 
 ## Copyright 
-(C) Copyright Bobbing Wide 2015,2016
+(C) Copyright Bobbing Wide 2015-2019
 
 * This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

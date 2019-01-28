@@ -1,14 +1,14 @@
-<?php // (C) Copyright Bobbing Wide 2015-2017
+<?php // (C) Copyright Bobbing Wide 2015-2019
 
 //* Child theme (do not remove) 
 define( 'CHILD_THEME_NAME', 'Genesis a2z' );
-define( 'CHILD_THEME_URL', 'http://www.bobbingwide.com/blog/oik-themes/genesis-a2z' );
+define( 'CHILD_THEME_URL', 'https://www.bobbingwide.com/blog/oik-themes/genesis-a2z' );
 
 if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
 	$timestamp = filemtime( get_stylesheet_directory() . "/style.css" );
 	define( 'CHILD_THEME_VERSION', $timestamp );
 } else { 
-	define( 'CHILD_THEME_VERSION', '1.0.9' );
+	define( 'CHILD_THEME_VERSION', '1.1.0' );
 }
 
 genesis_a2z_functions_loaded();
@@ -59,7 +59,7 @@ function genesis_a2z_footer_creds_text( $text ) {
  */
 function genesis_a2z_register_sidebars() {
   //bw_backtrace();
-  $cpts = array( "oik-plugins", "oik_shortcodes", "shortcode_example", "download", "oik_pluginversion", "oik-themes", "archive", "search" );
+  $cpts = array( "oik-plugins", "oik_shortcodes", "shortcode_example", "download", "oik_pluginversion", "oik-themes", "archive", "search", "block", "block_example" );
   $theme_widget_args = array( );
   foreach ( $cpts as $cpt ) {
     $theme_widget_args['group'] = 'default';
@@ -456,16 +456,19 @@ function genesis_a2z_a2z_display_args() {
 /**
  * Returns the Letter taxonomy associated to the post type
  * 
- * If post_type is not set then we return the 
+ * If post_type is not set then we return the taxonomy passed
  */ 
 function genesis_a2z_a2z_query_letter_taxonomy( $taxonomy, $args ) {
 	$post_type = bw_array_get( $args, "post_type", null );
 	if ( $post_type ) {
-		$oik_letters = array( "oik_shortcodes" => "oik_letters"
+		$oik_letters = array( "oik_shortcodes" => "letters"
 												, "oik_api" => "oik_letters"
 												, "oik_class" => "oik_letters"
 												, "oik_file" => "oik_letters"
 												, "oik_hook" => "oik_letters"
+			, "shortcode_example" => "letters"
+			, "block" => "letters"
+			, "block_example" => "letters"
 												);
 		$taxonomy = bw_array_get( $oik_letters, $post_type, $taxonomy );
 	}
