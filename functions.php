@@ -8,7 +8,7 @@ if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
 	$timestamp = filemtime( get_stylesheet_directory() . "/style.css" );
 	define( 'CHILD_THEME_VERSION', $timestamp );
 } else { 
-	define( 'CHILD_THEME_VERSION', '1.1.0' );
+	define( 'CHILD_THEME_VERSION', '1.1.1' );
 }
 
 genesis_a2z_functions_loaded();
