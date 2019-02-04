@@ -259,6 +259,8 @@ function genesis_a2z_functions_loaded() {
 	add_action( "wp", "genesis_a2z_wp_query" );
   add_theme_support( 'woocommerce' );
 	add_filter( "the_title", "genesis_a2z_the_title", 9, 2 );
+	add_theme_support( 'align-wide');
+
 }
 
 /**
