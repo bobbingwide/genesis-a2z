@@ -4,8 +4,8 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: genesis, a2z, one-column, two-columns, sidebars, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments
 * Requires at least: 5.0.3
-* Tested up to: 5.0.3
-* Version: 1.2.0
+* Tested up to: 5.1.0
+* Version: 1.2.1
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,6 +27,9 @@ genesis-a2z is a child theme for the Genesis Theme Framework, implemented on WP-
 
 
 ## Change Log 
+# 1.2.1 
+* Changed: Support styling for plugin dependency field
+
 # 1.2.0 
 * Changed: Change letter pagination for blocks and block examples, https://github.com/bobbingwide/genesis-a2z/issues/13
 * Changed: Improve styling for WordPress 5.0 / Gutenberg, https://github.com/bobbingwide/genesis-a2z/issues/14
