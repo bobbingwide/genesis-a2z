@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2017
+<?php // (C) Copyright Bobbing Wide 2017, 2019
 
 /**
  * Implement a tighter loop for taxonomy archives
@@ -57,7 +57,7 @@ function genesis_a2z_after_footer() {
  * : 12   genesis_do_post_content_nav;1
  * : 14   genesis_do_post_permalink;1--> 
  */
-remove_action( "genesis_entry_content", "genesis_do_post_image", 8 );
+//remove_action( "genesis_entry_content", "genesis_do_post_image", 8 );
 remove_action( "genesis_entry_content", "genesis_do_post_content", 10 );
 remove_action( "genesis_entry_content", "genesis_do_post_content_nav", 12 ); 
 remove_action( "genesis_entry_content", "genesis_do_post_permalink", 14 );
