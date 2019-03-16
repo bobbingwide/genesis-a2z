@@ -8,7 +8,7 @@ if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
 	$timestamp = filemtime( get_stylesheet_directory() . "/style.css" );
 	define( 'CHILD_THEME_VERSION', $timestamp );
 } else { 
-	define( 'CHILD_THEME_VERSION', '1.2.1' );
+	define( 'CHILD_THEME_VERSION', '1.3.0' );
 }
 
 genesis_a2z_functions_loaded();
@@ -261,6 +261,8 @@ function genesis_a2z_functions_loaded() {
 	add_filter( "the_title", "genesis_a2z_the_title", 9, 2 );
 	add_theme_support( 'align-wide');
 
+	add_filter( "posts_orderby", "genesis_a2z_posts_orderby", 10, 2 );
+
 }
 
 /**
@@ -452,15 +454,19 @@ function genesis_a2z_a2z_display_args() {
 		$post_type = get_query_var( "post_type" );
 		$args['post_type'] = $post_type;
 	}
+	if ( is_tax() ) {
+		$post_type = get_query_var( 'taxonomy' );
+		$args['taxonomy'] = $post_type;
+	}
 	return( $args );
 }
 
 /**
- * Returns the Letter taxonomy associated to the post type
+ * Returns the Letter taxonomy associated to the post type or taxonomy
  * 
- * If post_type is not set then we return the taxonomy passed
+ * If post_type or taxonomy is not set then we return the taxonomy passed
  */ 
-function genesis_a2z_a2z_query_letter_taxonomy( $taxonomy, $args ) {
+function genesis_a2z_a2z_query_letter_taxonomy( $letter_taxonomy, $args ) {
 	$post_type = bw_array_get( $args, "post_type", null );
 	if ( $post_type ) {
 		$oik_letters = array( "oik_shortcodes" => "letters"
@@ -472,9 +478,20 @@ function genesis_a2z_a2z_query_letter_taxonomy( $taxonomy, $args ) {
 			, "block" => "block_letters"
 			, "block_example" => "block_letters"
 												);
-		$taxonomy = bw_array_get( $oik_letters, $post_type, $taxonomy );
+		$letter_taxonomy = bw_array_get( $oik_letters, $post_type, $letter_taxonomy );
 	}
-	return( $taxonomy );
+	$taxonomy = bw_array_get( $args, "taxonomy", null );
+	if ( $taxonomy ) {
+		$oik_letters = array( "block_category" => "block_letters"
+			, "block_keyword" => "block_letters"
+			, "block_classification" => "block_letters"
+			, "block_letters" => "block_letters"
+		);
+		$letter_taxonomy = bw_array_get( $oik_letters, $taxonomy, $letter_taxonomy);
+
+	}
+
+	return( $letter_taxonomy );
 }
 
 /**
@@ -484,6 +501,29 @@ function genesis_a2z_a2z_letters() {
 	$args = genesis_a2z_a2z_display_args();
 	$taxonomy = genesis_a2z_a2z_query_letter_taxonomy( "oik_letters", $args );
 	do_action( "oik_a2z_display", $taxonomy, $args );
+}
+
+/**
+ * Implement "posts_orderby" for taxonomies
+ *
+ * Excluding categories and tags.
+ *
+ * @param string $orderby - current value of orderby
+ * @param object $query - a WP_Query object
+ * @return string the orderby we want
+ */
+function genesis_a2z_posts_orderby( $orderby, $query  ) {
+	global $wpdb;
+	if ( !is_admin()  ) {
+		if ( $query->is_archive() ) {
+		     if ( $query->is_category() || $query->is_tag() ) {
+			     // continue to display blog posts by post_date DESC
+		     } else {
+			     $orderby = "$wpdb->posts.post_title asc";
+		     }
+		}
+	}
+	return $orderby;
 }
 
 
