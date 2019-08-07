@@ -216,6 +216,11 @@ function genesis_a2z_functions_loaded() {
 
 	//* Add support for custom background
 	add_theme_support( 'custom-background' );
+	// Adds custom logo in Customizer > Site Identity.
+	add_theme_support( 'custom-logo', genesis_get_config( 'custom-logo' ) );
+	// Displays custom logo.
+	//add_action( 'genesis_site_title', 'the_custom_logo', 0 );
+	add_action( 'genesis_site_title', 'the_custom_logo', 6);
 
 	//* Add support for 4-column footer widgets - requires extra CSS
 	
@@ -250,9 +255,9 @@ function genesis_a2z_functions_loaded() {
 	add_action( "genesis_site_description", "genesis_a2z_site_description" );
 	
 	// Hide the genesis header
-	remove_action( "genesis_header", "genesis_header_markup_open", 5 );
-	remove_action( "genesis_header", "genesis_header_markup_close", 15 );
-	remove_action( "genesis_header", "genesis_do_header", 10 );
+	//remove_action( "genesis_header", "genesis_header_markup_open", 5 );
+	//remove_action( "genesis_header", "genesis_header_markup_close", 15 );
+	//remove_action( "genesis_header", "genesis_do_header", 10 );
 	
 	add_filter( "genesis_breadcrumb_args", "genesis_a2z_breadcrumb_args" );
 	
@@ -260,8 +265,15 @@ function genesis_a2z_functions_loaded() {
   add_theme_support( 'woocommerce' );
 	add_filter( "the_title", "genesis_a2z_the_title", 9, 2 );
 	add_theme_support( 'align-wide');
+	// Load regular editor styles into the new block-based editor.
+	//add_theme_support( 'editor-styles' );
+
+	// Load default block styles.
+	add_theme_support( 'wp-block-styles' );
 
 	add_filter( "posts_orderby", "genesis_a2z_posts_orderby", 10, 2 );
+
+	add_filter( 'jetpack_contact_form_is_spam', "genesis_a2z_return_error", 20, 2 );
 
 }
 
@@ -524,6 +536,10 @@ function genesis_a2z_posts_orderby( $orderby, $query  ) {
 		}
 	}
 	return $orderby;
+}
+
+function genesis_a2z_return_error( $spam, $akismet ) {
+	return new WP_Error( 'feedback-discarded', __( 'Test form ignored', 'genesis-a2z' ) );
 }
 
 
