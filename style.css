@@ -931,9 +931,9 @@ img.alignright,
 ---------------------------------------------------------------------------------------------------- */
 
 .site-header {
-	background-color: #fff;
-	min-height: 80px;
+	/* background-color: #fff; */
 	 /* position: static; */
+	min-height: 80px;
 }
 
 .site-header .wrap {
@@ -952,6 +952,10 @@ img.alignright,
 
 .custom-logo-link {
 	float: left;
+}
+
+.custom-logo-link img {
+	margin-right: 10px;
 }
 
 .header-full-width .title-area {
@@ -1022,8 +1026,8 @@ img.alignright,
 .genesis-nav-menu a {
 	color: #333;
 	display: block;
-	padding: 30px 24px;
-        padding: 0px 16px;
+	padding: 0px 16px;
+
 }
 
 .genesis-nav-menu a:hover,
