@@ -933,6 +933,7 @@ img.alignright,
 .site-header {
 	background-color: #fff;
 	min-height: 80px;
+	 /* position: static; */
 }
 
 .site-header .wrap {
@@ -945,7 +946,11 @@ img.alignright,
 .title-area {
 	float: left;
 	padding: 0px 0;
-	width: 250px;
+	width: 400px;
+}
+
+.custom-logo-link {
+	float: left;
 }
 
 .header-full-width .title-area {
@@ -991,9 +996,9 @@ img.alignright,
 --------------------------------------------- */
 
 .site-header .widget-area {
-	float: right;
+	float: left;
 	text-align: right;
-	width: 950px;
+	/* width: 950px; */
 }
 
 
