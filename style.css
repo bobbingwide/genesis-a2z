@@ -937,7 +937,7 @@ img.alignright,
 }
 
 .site-header .wrap {
-	padding: 8px 0;
+	padding: 8px 0 0px 0;
 }
 
 /* ## Title Area
@@ -947,6 +947,7 @@ img.alignright,
 	float: left;
 	padding: 0px 0;
 	width: 400px;
+	line-height: 1em;
 }
 
 .custom-logo-link {
@@ -997,7 +998,7 @@ img.alignright,
 
 .site-header .widget-area {
 	float: left;
-	text-align: right;
+	/* text-align: right; */
 	/* width: 950px; */
 }
 
@@ -1010,7 +1011,7 @@ img.alignright,
 	font-size: 16px;
 	line-height: 1;
 	width: 100%;
-        padding-top: 2px;
+        padding-top: 10px;
 }
 
 .genesis-nav-menu .menu-item {
@@ -1033,7 +1034,7 @@ img.alignright,
 
 .genesis-nav-menu a {
    background: #A2AB3B;
-   background: linear-gradient(top, #B7C149 0, #B4BE41 14%, #889031 100%) no-repeat;
+   /*background: linear-gradient(top, #B7C149 0, #B4BE41 14%, #889031 100%) no-repeat;
    background: -webkit-linear-gradient(top, #B7C149 0, #B4BE41 14%, #889031 100%) no-repeat;
    background: -moz-linear-gradient(top, #B7C149 0, #B4BE41 14%, #889031 100%) no-repeat;
    background: -o-linear-gradient(top, #B7C149 0, #B4BE41 14%, #889031 100%) no-repeat;
@@ -1043,7 +1044,8 @@ img.alignright,
    -webkit-border-radius:3px;
    -moz-border-radius:3px;
    border-radius:3px;
-   border:1px solid #7E852E;
+*/
+   border:1px solid #a2ab3b;
    /* padding:0 17px; */
    margin:2px auto;
    position: relative;
@@ -1157,7 +1159,8 @@ img.alignright,
  .genesis-nav-menu .current-menu-item > a,
  .genesis-nav-menu .sub-menu .current-menu-item > a:hover {
         
-   background: #F1946F;
+   background: #ffffff;
+	 /*
    background: linear-gradient(top, #F4B094 0, #EE7C4F 100%) no-repeat;
    background: -webkit-linear-gradient(top, #F4B094 0, #EE7C4F 100%) no-repeat;
    background: -moz-linear-gradient(top, #F4B094 0, #EE7C4F 100%) no-repeat;
@@ -1167,7 +1170,8 @@ img.alignright,
    -svg-background: linear-gradient(top, #F4B094 0, #EE7C4F 100%) no-repeat;
    -webkit-border-radius:3px;
    -moz-border-radius:3px;
-   border-radius:3px;
+   border-radius:3px; */
+
    border:1px solid #F1946F;
    /* padding:0 17px; */
    margin:0 auto;
@@ -1521,7 +1525,7 @@ li.comment {
 
 	.content,
 	.site-header .widget-area {
-		width: 620px;
+		/*width: 620px; */
 	}
 
 	.sidebar-content-sidebar .content,
@@ -1584,7 +1588,7 @@ li.comment {
 	.site-header .title-area,
 	.site-header .search-form,
 	.site-title {
-		text-align: center;
+		/* text-align: center; */
 	}
 
 	.genesis-nav-menu a,
