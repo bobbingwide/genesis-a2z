@@ -630,5 +630,10 @@ div.bw_plug a.plugin { display: block; }
 
 a span.summary { font-size: 90%; }
 
+article.block h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 
  
