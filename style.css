@@ -1026,7 +1026,7 @@ img.alignright,
 .genesis-nav-menu a {
 	color: #333;
 	display: block;
-	padding: 0px 16px;
+	padding: 0px 15px;
 
 }
 
@@ -1540,8 +1540,7 @@ li.comment {
 
 	.footer-widgets-1,
 	.footer-widgets-2,
-	.footer-widgets-3,
-	.title-area {
+	.footer-widgets-3 {
 		width: 100%;
 	}
 
