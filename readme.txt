@@ -26,6 +26,18 @@ genesis-a2z is a child theme for the Genesis Theme Framework, implemented on WP-
 
 
 == Change Log ==
+= 1.4.0 = 
+* Changed: Update screenshot to show the header
+* Changed: Enable menu to remain to the right of the title for 1200px width
+* Changed: Re-introduce header. Improve header and nav menu styling, [github bobbingwide genesis-a2z issues 18]
+* Changed: Disable Jetpack contact form.,[github bobbingwide genesis-a2z issues 16]
+* 3beb518 Issue #8 - support custom logo in the header to the left of the title and description
+* 3876d15 Issue #3 - add top & bottom margin to h2 for block CPT
+
+= 1.3.0 = 
+* Changed: Improve display of taxonomy archives - A-Z pagination&comma; sort sequence,[github bobbingwide genesis-a2z issues 4]
+* Changed: ensure we do display the featured image on taxonomy archives,[github bobbingwide genesis-a2z issues 4]
+
 = 1.2.1 = 
 * Changed: Support styling for plugin dependency field
  
