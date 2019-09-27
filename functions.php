@@ -8,10 +8,17 @@ if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
 	$timestamp = filemtime( get_stylesheet_directory() . "/style.css" );
 	define( 'CHILD_THEME_VERSION', $timestamp );
 } else { 
-	define( 'CHILD_THEME_VERSION', '1.3.0' );
+	//define( 'CHILD_THEME_VERSION', '1.3.0' );
+	define( 'CHILD_THEME_VERSION', wp_get_theme()->get( 'Version' ) );
+
 }
 
+// Defines constants to help enqueue scripts and styles.
+define( 'CHILD_THEME_HANDLE', sanitize_title_with_dashes( wp_get_theme()->get( 'Name' ) ) );
+
 genesis_a2z_functions_loaded();
+
+
 
 /**
  * Display footer credits for the oik theme
@@ -197,8 +204,9 @@ function genesis_a2z_pre_get_option_site_layout( $layout, $setting ) {
  * Register the hooks for this theme
  */
 function genesis_a2z_functions_loaded() {
-	// Start the engine. Yes. It is necessary.
-	include_once( get_template_directory() . '/lib/init.php' );
+
+	genesis_a2z_version3();
+
 	
 	//* Add HTML5 markup structure
 	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
@@ -217,7 +225,7 @@ function genesis_a2z_functions_loaded() {
 	//* Add support for custom background
 	add_theme_support( 'custom-background' );
 	// Adds custom logo in Customizer > Site Identity.
-	add_theme_support( 'custom-logo', genesis_get_config( 'custom-logo' ) );
+//	add_theme_support( 'custom-logo', genesis_get_config( 'custom-logo' ) );
 	// Displays custom logo.
 	//add_action( 'genesis_site_title', 'the_custom_logo', 0 );
 	add_action( 'genesis_site_title', 'the_custom_logo', 6);
@@ -258,6 +266,12 @@ function genesis_a2z_functions_loaded() {
 	//remove_action( "genesis_header", "genesis_header_markup_open", 5 );
 	//remove_action( "genesis_header", "genesis_header_markup_close", 15 );
 	//remove_action( "genesis_header", "genesis_do_header", 10 );
+	// Repositions primary navigation menu.
+	remove_action( 'genesis_after_header', 'genesis_do_nav' );
+	add_action( 'genesis_header', 'genesis_do_nav', 12 );
+	// Repositions the secondary navigation menu.
+	remove_action( 'genesis_after_header', 'genesis_do_subnav' );
+	add_action( 'genesis_footer', 'genesis_do_subnav', 10 );
 	
 	add_filter( "genesis_breadcrumb_args", "genesis_a2z_breadcrumb_args" );
 	
@@ -541,6 +555,113 @@ function genesis_a2z_posts_orderby( $orderby, $query  ) {
 function genesis_a2z_return_error( $spam, $akismet ) {
 	return new WP_Error( 'feedback-discarded', __( 'Test form ignored', 'genesis-a2z' ) );
 }
+
+function genesis_a2z_version3() {
+	// Start the engine. Yes. It is necessary.
+	//include_once( get_template_directory() . '/lib/init.php' );
+	require_once get_template_directory() . '/lib/init.php';
+	// Sets up the Theme.
+	// Can't see a need for theme-defaults at present
+	require_once get_stylesheet_directory() . '/lib/theme-defaults.php';
+
+	// Adds helper functions.
+	require_once get_stylesheet_directory() . '/lib/helper-functions.php';
+
+	// Adds image upload and color select to Customizer.
+	require_once get_stylesheet_directory() . '/lib/customize.php';
+
+	// Includes Customizer CSS.
+	require_once get_stylesheet_directory() . '/lib/output.php';
+
+	// Adds WooCommerce support.
+	//require_once get_stylesheet_directory() . '/lib/woocommerce/woocommerce-setup.php';
+
+	// Adds the required WooCommerce styles and Customizer CSS.
+	//require_once get_stylesheet_directory() . '/lib/woocommerce/woocommerce-output.php';
+
+	// Adds the Genesis Connect WooCommerce notice.
+	//require_once get_stylesheet_directory() . '/lib/woocommerce/woocommerce-notice.php';
+	add_action( 'after_setup_theme', 'genesis_a2z_localization_setup' );
+
+	add_action( 'after_setup_theme', 'genesis_child_gutenberg_support' );
+	add_action( 'after_setup_theme', 'genesis_a2z_theme_support', 9 );
+	//add_action( 'after_setup_theme', 'genesis_rngs_oik_clone_support' );
+
+
+	// Registers the responsive menus.
+	if ( function_exists( 'genesis_register_responsive_menus' ) ) {
+		genesis_register_responsive_menus( genesis_get_config( 'responsive-menus' ) );
+	}
+
+	add_action( 'wp_enqueue_scripts', 'genesis_a2z_enqueue_scripts_styles' );
+
+}
+
+/**
+ * Sets localization (do not remove).
+ *
+ * @since 1.0.0
+ */
+function genesis_a2z_localization_setup() {
+
+	load_child_theme_textdomain( genesis_get_theme_handle(), get_stylesheet_directory() . '/languages' );
+
+}
+/**
+ * Adds Gutenberg opt-in features and styling.
+ *
+ * @since 2.7.0
+ */
+function genesis_child_gutenberg_support() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- using same in all child themes to allow action to be unhooked.
+	require_once get_stylesheet_directory() . '/lib/gutenberg/init.php';
+}
+
+
+/**
+ * Add desired theme supports.
+ *
+ * See config file at `config/theme-supports.php`.
+ *
+ * @since 3.0.0
+ */
+function genesis_a2z_theme_support() {
+
+	$theme_supports = genesis_get_config( 'theme-supports' );
+
+	foreach ( $theme_supports as $feature => $args ) {
+		add_theme_support( $feature, $args );
+	}
+}
+
+/**
+ * Enqueues scripts and styles.
+ *
+ * @since 1.0.0
+ */
+function genesis_a2z_enqueue_scripts_styles() {
+
+	$appearance = genesis_get_config( 'appearance' );
+
+	wp_enqueue_style(
+		genesis_get_theme_handle() . '-fonts',
+		$appearance['fonts-url'],
+		array(),
+		genesis_get_theme_version()
+	);
+
+	wp_enqueue_style( 'dashicons' );
+
+	if ( genesis_is_amp() ) {
+		wp_enqueue_style(
+			genesis_get_theme_handle() . '-amp',
+			get_stylesheet_directory_uri() . '/lib/amp/amp.css',
+			array( genesis_get_theme_handle() ),
+			genesis_get_theme_version()
+		);
+	}
+
+}
+
 
 
 
