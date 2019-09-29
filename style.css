@@ -1,4 +1,4 @@
-/*   
+/*
 Theme Name: Genesis a2z
 Theme URI: https://www.oik-plugins.com/oik-themes/genesis-a2z
 Description: Child theme of Genesis Theme Framework with oik and image.php for WP-a2z
@@ -1137,7 +1137,7 @@ img.alignright,
         
    background: #ffffff;
 
-   border:1px solid #F1946F;
+   border:1px solid #baba54;
    margin:0 auto;
    color: #792B0C;
   text-decoration: none;
@@ -1278,8 +1278,8 @@ img.alignright,
 	display: inline-block;
 }
 .nav-secondary a {
-	margin-left: 10px;
-	margin-right: 10px;
+	margin-left: 0px;
+	margin-right: 0px;
 	padding: 0;
 }
 /* Content Area
