@@ -1,24 +1,6 @@
 <?php // (C) Copyright Bobbing Wide 2015-2019
 
-//* Child theme (do not remove) 
-define( 'CHILD_THEME_NAME', 'Genesis a2z' );
-define( 'CHILD_THEME_URL', 'https://www.bobbingwide.com/blog/oik-themes/genesis-a2z' );
-
-if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
-	$timestamp = filemtime( get_stylesheet_directory() . "/style.css" );
-	define( 'CHILD_THEME_VERSION', $timestamp );
-} else { 
-	//define( 'CHILD_THEME_VERSION', '1.3.0' );
-	define( 'CHILD_THEME_VERSION', wp_get_theme()->get( 'Version' ) );
-
-}
-
-// Defines constants to help enqueue scripts and styles.
-define( 'CHILD_THEME_HANDLE', sanitize_title_with_dashes( wp_get_theme()->get( 'Name' ) ) );
-
 genesis_a2z_functions_loaded();
-
-
 
 /**
  * Display footer credits for the oik theme
