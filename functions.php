@@ -234,7 +234,7 @@ function genesis_a2z_functions_loaded() {
 	
 	add_theme_support( 'genesis-footer-widgets', 2 );
 
-	add_filter( 'genesis_footer_creds_text', "genesis_a2z_footer_creds_text" );
+	add_filter( 'genesis_pre_get_option_footer_text', "genesis_a2z_footer_creds_text" );
 	
   add_filter( 'genesis_pre_get_option_site_layout', 'genesis_a2z_pre_get_option_site_layout', 10, 2 );
 	
