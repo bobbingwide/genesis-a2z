@@ -3,9 +3,9 @@
 * Contributors: bobbingwide, vsgloik
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: genesis, a2z, one-column, two-columns, sidebars, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments
-* Requires at least: 5.0.3
-* Tested up to: 5.1.0
-* Version: 1.2.1
+* Requires at least: 5.2.3
+* Tested up to: 5.2.3
+* Version: 2.0.0
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,6 +27,21 @@ genesis-a2z is a child theme for the Genesis Theme Framework, implemented on WP-
 
 
 ## Change Log 
+# 2.0.0 
+* Changed: Eliminate CHILD_THEME_* constants. Update to Genesis 3.1.2,https://github.com/bobbingwide/genesis-a2z/issues/15
+* Changed: Update screenshot to show the header and Home page for blocks.wp-a2z.org
+* Changed: Enable menu to remain to the right of the title for 1200px width
+* Changed: Re-introduce header. Improve header and nav menu styling, https://github.com/bobbingwide/genesis-a2z/issues/18
+* Changed: Disable Jetpack contact form.,https://github.com/bobbingwide/genesis-a2z/issues/16
+* Changed: Support custom logo in the header to the left of the title and description,https://github.com/bobbingwide/genesis-a2z/issues/18
+* Changed: Add top & bottom margin to h2 for block CPT,https://github.com/bobbingwide/genesis-a2z/issues/18
+* Tested: With WordPress 5.2.3 and WordPress Multi Site
+* Tested: With PHP 7.3
+
+# 1.3.0 
+* Changed: Improve display of taxonomy archives - A-Z pagination&comma; sort sequence,https://github.com/bobbingwide/genesis-a2z/issues/4
+* Changed: ensure we do display the featured image on taxonomy archives,https://github.com/bobbingwide/genesis-a2z/issues/4
+
 # 1.2.1 
 * Changed: Support styling for plugin dependency field
 
