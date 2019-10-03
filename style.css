@@ -996,7 +996,7 @@ img.alignright,
 	 /* position: static; */
 	min-height: 80px;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-	padding: 0 30px;
+	padding: 0 8px;
 }
 
 .site-header .wrap {
@@ -1035,7 +1035,7 @@ img.alignright,
 	width: auto;
 }
 .site-title {
-	font-size: 25px;
+	font-size: 22px;
 	font-weight: 400;
 	line-height: 1.2;
 }
@@ -1076,7 +1076,7 @@ img.alignright,
 
 .genesis-nav-menu {
 	clear: both;
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 1;
 	width: 100%;
         padding-top: 10px;
@@ -1577,8 +1577,8 @@ p.entry-meta {
 	}
 
 	.nav-primary .genesis-nav-menu a {
-		padding-left: 15px;
-		padding-right: 15px;
+		padding-left: 9px;
+		padding-right: 9px;
 	}
 
 	/* Site-Inner
