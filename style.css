@@ -212,9 +212,11 @@ ul {
 	padding: 0;
 }
 
+/* Don't do this?
 li {
 	list-style-type: none;
 }
+*/
 hr {
 	border: none;
 	border-collapse: collapse;
@@ -1295,16 +1297,20 @@ img.alignright,
 	margin-bottom: 30px;
 	padding-left: 40px;
 }
+/** Do we need these?
 .entry-content ol > li {
 	list-style-type: decimal;
 }
+
+
 .entry-content ul > li {
 	list-style-type: disc;
 }
+
 .entry-content ol ul > li,
 .entry-content ul ul > li {
 	list-style-type: circle;
-}
+}*/
 .entry-content ol ol,
 .entry-content ul ul {
 	margin-bottom: 0;
