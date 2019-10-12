@@ -326,6 +326,10 @@ dl dl {
 	color: #555;
 }
 
+.textwidget .bw_list li {
+    list-style-type: none;
+}
+
 
 
 // * MEDIA MEDIA MEDIA MEDIA queries start here */
