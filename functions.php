@@ -438,7 +438,8 @@ function genesis_a2z_the_title( $text, $id ) {
 			$text = str_replace( " - ", ' <span class="summary">- ', $text );
 			$text .= "</span>";
 		}
-	}	
+	}
+	$text = str_replace( "Wordpress", "Word&#112;ress", $text );
 	return( $text );
 }
 
