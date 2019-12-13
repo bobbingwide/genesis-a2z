@@ -641,7 +641,6 @@ th:last-child {
 
 .site-container {
 	animation: fadein 1s;
-	word-wrap: break-word;
 }
 
 @keyframes fadein {
@@ -1790,6 +1789,8 @@ p.entry-meta {
 		border: 1px solid #999;
 		page-break-inside: avoid;
 	}
+
+
 
 	.content,
 	.content-sidebar {
