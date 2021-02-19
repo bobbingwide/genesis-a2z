@@ -1474,6 +1474,12 @@ p.entry-meta {
 	margin-bottom: 0;
 }
 
+/* Multi columns lists */
+.is-style-cw250 { column-width: 250px;  column-gap: 50px;}
+.is-style-cw150 { column-width: 150px;  column-gap: 50px;}
+
+
+
 
 /* Media Queries
 ---------------------------------------------------------------------------- */
