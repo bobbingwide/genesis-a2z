@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2015-2019
+<?php // (C) Copyright Bobbing Wide 2015-2021
 
 genesis_a2z_functions_loaded();
 
@@ -271,6 +271,15 @@ function genesis_a2z_functions_loaded() {
 
 	add_filter( 'jetpack_contact_form_is_spam', "genesis_a2z_return_error", 20, 2 );
 
+	add_action( 'enqueue_block_editor_assets', 'genesis_a2z_enqueue_block_editor_assets' );
+	add_editor_style();
+
+    /**
+     * Remove the block based widget editor - which didn't appear to work at all in blocks.wp.a2z
+     * on 2020/10/27 with Gutenberg 9.2.2
+     */
+    remove_theme_support( 'widgets-block-editor' );
+
 }
 
 /**
@@ -427,8 +436,19 @@ function _e_c( $string ) {
  * @return string
  */
 function genesis_a2z_the_title( $text, $id ) {
-	//bw_trace2();
-	$pos = strpos( $text, "() " );
+	bw_trace2();
+	bw_backtrace();
+	if ( doing_filter( 'pre_render_block') ) {
+	    return $text;
+    }
+	if ( doing_filter( 'parse_request') ) {
+	   return $text;
+    }
+    if ( doing_filter( 'the_content') ) {
+        return $text;
+    }
+
+    $pos = strpos( $text, "() " );
 	if ( $pos ) {
 		$text = str_replace( "() ", '() <span class="summary">', $text );
 		$text .= "</span>";
@@ -566,7 +586,7 @@ function genesis_a2z_version3() {
 	//require_once get_stylesheet_directory() . '/lib/woocommerce/woocommerce-notice.php';
 	add_action( 'after_setup_theme', 'genesis_a2z_localization_setup' );
 
-	add_action( 'after_setup_theme', 'genesis_child_gutenberg_support' );
+	add_action( 'after_setup_theme', 'genesis_a2z_gutenberg_support' );
 	add_action( 'after_setup_theme', 'genesis_a2z_theme_support', 9 );
 	//add_action( 'after_setup_theme', 'genesis_rngs_oik_clone_support' );
 
@@ -593,9 +613,11 @@ function genesis_a2z_localization_setup() {
 /**
  * Adds Gutenberg opt-in features and styling.
  *
+ * Renamed from genesis_child_gutenberg_support
+ *
  * @since 2.7.0
  */
-function genesis_child_gutenberg_support() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- using same in all child themes to allow action to be unhooked.
+function genesis_a2z_gutenberg_support() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- using same in all child themes to allow action to be unhooked.
 	require_once get_stylesheet_directory() . '/lib/gutenberg/init.php';
 }
 
@@ -642,6 +664,21 @@ function genesis_a2z_enqueue_scripts_styles() {
 			genesis_get_theme_version()
 		);
 	}
+
+}
+
+/**
+ * Gutenberg scripts and styles
+ * @link https://www.billerickson.net/block-styles-in-gutenberg/
+ */
+function genesis_a2z_enqueue_block_editor_assets() {
+	wp_enqueue_script(
+		'a2z-editor',
+		get_stylesheet_directory_uri() . '/assets/js/editor.js',
+		array( 'wp-blocks', 'wp-dom' ),
+		filemtime( get_stylesheet_directory() . '/assets/js/editor.js' ),
+		true
+	);
 
 }
 
