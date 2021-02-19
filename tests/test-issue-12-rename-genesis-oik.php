@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2017
+<?php // (C) Copyright Bobbing Wide 2017-2021
 
 /**
  * Can we confirm that all the genesis_a2z logic has been renamed in the theme?
@@ -16,18 +16,24 @@ class Tests_issue_12_rename_genesis_oik extends BW_UnitTestCase {
 	 * with \ converted to /
      * and make sure it's loaded
 	 */
-	function setUp() {
+	function setUp(): void {
 		parent::setUp();
-		$this->functionsphp = dirname( __DIR__ ) . "/functions.php";
-		$this->functionsphp = str_replace( "\\", '/', $this->functionsphp );
-		require_once( $this->functionsphp );
+		$stylesheet = get_stylesheet();
+		if ( 'genesis-a2z' === $stylesheet ) {
+
+			$this->functionsphp=dirname( __DIR__ ) . "/functions.php";
+			$this->functionsphp=str_replace( "\\", '/', $this->functionsphp );
+			require_once( $this->functionsphp );
+		} else {
+			echo "Stylesheet is $stylesheet";
+		}
 
 	}
 	
 	/**
 	 * Checks if function implemented in functions.php
 	 *
-	 * Note: We don't allowe methods in functions.php
+	 * Note: We don't allow methods in functions.php
 	 * 
 	 * @param $infile
 	 * @return bool true if this is the theme's functions.php file
@@ -38,6 +44,14 @@ class Tests_issue_12_rename_genesis_oik extends BW_UnitTestCase {
 		$isfunctionsphp = false;
 		$isfunctionsphp = $infile == $this->functionsphp;
 		return( $isfunctionsphp );
+	}
+
+	/**
+	 * The current theme has to be genesis_a2z otherwise the tests will fail.
+	 */
+	function test_a_current_theme_is_genesis_a2z() {
+		$stylesheet = get_stylesheet();
+		$this->assertEquals( 'genesis-a2z', $stylesheet, "Current stylesheet is not genesis-a2z" );
 	}
 	
 	/**
