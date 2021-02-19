@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="" tests="1" assertions="22" errors="0" failures="0" skipped="0" time="0.023554">
-    <testsuite name="Tests_issue_12_rename_genesis_oik" file="C:\apache\htdocs\wordpress\wp-content\themes\genesis-a2z\tests\test-issue-12-rename-genesis-oik.php" tests="1" assertions="22" errors="0" failures="0" skipped="0" time="0.023554">
-      <testcase name="test_all_my_user_functions_prefixed_genesis_a2z" class="Tests_issue_12_rename_genesis_oik" classname="Tests_issue_12_rename_genesis_oik" file="C:\apache\htdocs\wordpress\wp-content\themes\genesis-a2z\tests\test-issue-12-rename-genesis-oik.php" line="47" assertions="22" time="0.023554"/>
+  <testsuite name="" tests="2" assertions="31" errors="0" warnings="0" failures="0" skipped="0" time="0.077836">
+    <testsuite name="genesis-a2z" tests="2" assertions="31" errors="0" warnings="0" failures="0" skipped="0" time="0.077836">
+      <testsuite name="Tests_issue_12_rename_genesis_oik" file="C:\apache\htdocs\wordpress\wp-content\themes\genesis-a2z\tests\test-issue-12-rename-genesis-oik.php" tests="2" assertions="31" errors="0" warnings="0" failures="0" skipped="0" time="0.077836">
+        <testcase name="test_a_current_theme_is_genesis_a2z" class="Tests_issue_12_rename_genesis_oik" classname="Tests_issue_12_rename_genesis_oik" file="C:\apache\htdocs\wordpress\wp-content\themes\genesis-a2z\tests\test-issue-12-rename-genesis-oik.php" line="52" assertions="1" time="0.061181"/>
+        <testcase name="test_all_my_user_functions_prefixed_genesis_a2z" class="Tests_issue_12_rename_genesis_oik" classname="Tests_issue_12_rename_genesis_oik" file="C:\apache\htdocs\wordpress\wp-content\themes\genesis-a2z\tests\test-issue-12-rename-genesis-oik.php" line="61" assertions="30" time="0.016654"/>
+      </testsuite>
     </testsuite>
   </testsuite>
 </testsuites>
