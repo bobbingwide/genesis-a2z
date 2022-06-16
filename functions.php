@@ -191,6 +191,7 @@ function genesis_a2z_functions_loaded() {
 
 	
 	//* Add HTML5 markup structure
+
 	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
 
 	//* Add viewport meta tag for mobile browsers
@@ -654,7 +655,7 @@ function genesis_a2z_enqueue_scripts_styles() {
 		genesis_get_theme_version()
 	);
 
-	wp_enqueue_style( 'dashicons' );
+	//wp_enqueue_style( 'dashicons' );
 
 	if ( genesis_is_amp() ) {
 		wp_enqueue_style(
