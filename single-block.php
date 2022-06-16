@@ -22,7 +22,7 @@
  * Found out how to do this by using {@link genesis.wp-a2z.org}
  * and oik-bwtrace and good old grep.
  */
-add_theme_support( 'html5' );
+//add_theme_support( 'html5' );
 
 // Remove post info
 //remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );

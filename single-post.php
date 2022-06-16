@@ -16,7 +16,7 @@
  * - Breadcrumbs
  * - Filed Under:
  */
-add_theme_support( 'html5' );
+//add_theme_support( 'html5' );
 
 // Remove post info
 remove_action( 'genesis_entry_header', 'genesis_do_post_title', 10 );
