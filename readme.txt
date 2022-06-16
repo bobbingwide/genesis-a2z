@@ -3,8 +3,8 @@ Contributors: bobbingwide, vsgloik
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: genesis, a2z, one-column, two-columns, sidebars, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments
 Requires at least: 5.2.3
-Tested up to: 5.2.3
-Version: 2.0.0
+Tested up to: 6.0
+Version: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,24 @@ genesis-a2z is a child theme for the Genesis Theme Framework, implemented on WP-
 
 
 == Change Log ==
+= 2.1.0 = 
+* Fixed: Don't call add_theme_support('html5') anymore #28
+* Changed: Add page_blog.php template - not quite sure why though
+* Changed: PHPUnit test with PHPUnit 8 / 9
+* Changed: Add support for Columns to the List block
+* Changed: Update test for PHP 8 with PHPUnit 9. Check that genesis-a2z is the active child theme.
+* Changed: Add support for Columns. Add support for wide and full-wide
+* Changed: Add support for Columns to the List block
+* Changed: Various improvements: issue #25, issue #27
+* Changed: Issue #24 - remove word-wrap: break-word from .site-container
+* Changed: Issue #24 - add overflow: auto to .entry-content pre
+* Changed: Issue #20 - filter 'Wordpress' to force the lower case p to avoid changing the short description of capital_P_dangit
+* Changed: Issue #14 - set list-style-type for .bw_list items in widgets to none
+* Changed: Issue #14 - try not using list-style-type for list items and see what happens
+* Changed: Issue #19 - Use a full colour palette which includes the 11 default colours, plus Vivid Purple, White and the Link and Accent colours set by the user in the Customizer
+* Changed: Issues #8 - improve header styling on iPad landscape
+* Tested: With WordPress 6.0 and WordPress Multi Site
+
 = 2.0.0 = 
 * Changed: Eliminate CHILD_THEME_* constants. Update to Genesis 3.1.2,[github bobbingwide genesis-a2z issues 15]
 * Changed: Update screenshot to show the header and Home page for blocks.wp-a2z.org
@@ -119,7 +137,7 @@ genesis-a2z is a child theme for the Genesis Theme Framework, implemented on WP-
 * Added: Other styling delivered in oik-custom.css - from oik-plugins.com
  
 == Copyright ==
-(C) Copyright Bobbing Wide 2015-2019
+(C) Copyright Bobbing Wide 2015-2022
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
